@@ -1,0 +1,39 @@
+---
+title: SIGEVS-O Ontology — Core Subdomain
+---
+classDiagram
+    class Establishment {
+        <<Kind>>
+    }
+    class Address {
+        <<Kind>>
+    }
+    class Person {
+        <<Kind>>
+    }
+    class AnimalSpecies {
+        <<Kind>>
+    }
+    class Slaughterhouse {
+        <<Subkind>>
+    }
+    class SwineFarm {
+        <<Subkind>>
+    }
+    class PoultryFarm {
+        <<Subkind>>
+    }
+
+    Establishment --> Address : hasAddress
+    Establishment --> AnimalSpecies : raises
+    Establishment <|-- Slaughterhouse
+    Establishment <|-- SwineFarm
+    Establishment <|-- PoultryFarm
+
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Address fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style AnimalSpecies fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Slaughterhouse fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SwineFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PoultryFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px

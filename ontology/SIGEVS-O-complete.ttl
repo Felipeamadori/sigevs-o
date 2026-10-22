@@ -1,0 +1,1276 @@
+@prefix : <https://sigevs.ontologies#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+#################################################################
+# Ontology header
+#################################################################
+
+<https://sigevs.ontologies> a owl:Ontology ;
+    rdfs:comment "SIGEVS-O: A Domain Ontology for Veterinary Emergency Management. gUFO/OWL formalisation completed from the Visual Paradigm export (SIGEVS-O.ttl), including attributes, inverse relations, keys and the formal axioms documented in the SABiOx artefacts."@en ;
+    owl:imports gufo: ;
+    owl:versionInfo "1.0" .
+
+#################################################################
+# Classes — Core subdomain
+#################################################################
+
+:Estabelecimento a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Establishment"@en, "Estabelecimento"@pt .
+
+:Endereco a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Address"@en, "Endereco"@pt .
+
+:Pessoa a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Person"@en, "Pessoa"@pt .
+
+:EspecieAnimal a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Animal Species"@en, "Especie Animal"@pt .
+
+:Frigorifico a owl:Class, gufo:SubKind, owl:NamedIndividual ;
+    rdfs:label "Slaughterhouse"@en, "Frigorifico"@pt .
+
+:GranjaAve a owl:Class, gufo:SubKind, owl:NamedIndividual ;
+    rdfs:label "Poultry Farm"@en, "Granja de Aves"@pt .
+
+:GranjaSuino a owl:Class, gufo:SubKind, owl:NamedIndividual ;
+    rdfs:label "Swine Farm"@en, "Granja de Suinos"@pt .
+
+#################################################################
+# Classes — Sanitary Investigation subdomain
+#################################################################
+
+:AnaliseSanitaria a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Sanitary Analysis"@en, "Analise Sanitaria"@pt .
+
+:AlvoInvestigacao a owl:Class, gufo:Role, owl:NamedIndividual ;
+    rdfs:label "Investigation Target"@en, "Alvo de Investigacao"@pt .
+
+:AreaAfetada a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Affected Area"@en, "Area Afetada"@pt .
+
+:ZonaControleInvestigacao a owl:Class ;
+    rdfs:subClassOf gufo:Relator ;
+    rdfs:label "Investigation Control Zone"@en, "Zona de Controle da Investigacao"@pt .
+
+:MovimentacaoAnimal a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Animal Movement"@en, "Movimentacao Animal"@pt .
+
+:PropriedadeContactante a owl:Class, gufo:Role, owl:NamedIndividual ;
+    rdfs:label "Contacting Property"@en, "Propriedade Contactante"@pt .
+
+:CategoriaEspecie a owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:QualityValue ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:oneOf ( :CategoriaAves :CategoriaSuinos :CategoriaOvinos :CategoriaBovinos :CategoriaOutros )
+    ] ;
+    rdfs:label "Species Category"@en, "Categoria de Especie"@pt .
+
+#################################################################
+# Classes — Sanitary Response subdomain
+#################################################################
+
+:RespostaSanitaria a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Sanitary Response"@en, "Resposta Sanitaria"@pt .
+
+:CicloVigilancia a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Surveillance Cycle"@en, "Ciclo de Vigilancia"@pt .
+
+:ZonaPorCiclo a owl:Class ;
+    rdfs:subClassOf gufo:Relator ;
+    rdfs:label "Zone per Cycle"@en, "Zona por Ciclo"@pt .
+
+:EquipeCampo a owl:Class ;
+    rdfs:subClassOf gufo:VariableCollection ;
+    rdfs:label "Field Team"@en, "Equipe de Campo"@pt .
+
+:MembroEquipe a owl:Class, gufo:Role, owl:NamedIndividual ;
+    rdfs:label "Team Member"@en, "Membro de Equipe"@pt .
+
+:Funcao a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Function"@en, "Funcao"@pt .
+
+:AreaOperacional a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Operational Area"@en, "Area Operacional"@pt .
+
+:PropriedadeEmArea a owl:Class ;
+    rdfs:subClassOf gufo:Relator ;
+    rdfs:label "Property in Area"@en, "Propriedade em Area"@pt .
+
+:BarreiraSanitaria a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Sanitary Barrier"@en, "Barreira Sanitaria"@pt .
+
+:Veiculo a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Vehicle"@en, "Veiculo"@pt .
+
+:PostoComando a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Command Post"@en, "Posto de Comando"@pt .
+
+:PessoaConvocada a owl:Class, gufo:Role, owl:NamedIndividual ;
+    rdfs:label "Summoned Person"@en, "Pessoa Convocada"@pt .
+
+:RastreamentoGps a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "GPS Tracking"@en, "Rastreamento GPS"@pt .
+
+:TipoEquipe a owl:Class, gufo:Kind, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:FunctionalComplex ;
+    rdfs:label "Team Type"@en, "Tipo de Equipe"@pt .
+
+#################################################################
+# Classes — Field Actions subdomain
+#################################################################
+
+:SubmissaoPropriedade a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Property Submission"@en, "Submissao de Propriedade"@pt .
+
+:SubmissaoBarreira a owl:Class, gufo:EventType, owl:NamedIndividual ;
+    rdfs:subClassOf gufo:Event ;
+    rdfs:label "Barrier Submission"@en, "Submissao de Barreira"@pt .
+
+:PropriedadeTemporaria a owl:Class, gufo:Role, owl:NamedIndividual ;
+    rdfs:label "Temporary Property"@en, "Propriedade Temporaria"@pt .
+
+#################################################################
+# Enumeration values (CategoriaEspecie)
+#################################################################
+
+:CategoriaAves a owl:NamedIndividual, :CategoriaEspecie ;
+    rdfs:label "AVES"@en .
+
+:CategoriaSuinos a owl:NamedIndividual, :CategoriaEspecie ;
+    rdfs:label "SUINOS"@en .
+
+:CategoriaOvinos a owl:NamedIndividual, :CategoriaEspecie ;
+    rdfs:label "OVINOS"@en .
+
+:CategoriaBovinos a owl:NamedIndividual, :CategoriaEspecie ;
+    rdfs:label "BOVINOS"@en .
+
+:CategoriaOutros a owl:NamedIndividual, :CategoriaEspecie ;
+    rdfs:label "OUTROS"@en .
+
+#################################################################
+# Generalizations
+#################################################################
+
+:Frigorifico rdfs:subClassOf :Estabelecimento .
+:GranjaAve rdfs:subClassOf :Estabelecimento .
+:GranjaSuino rdfs:subClassOf :Estabelecimento .
+:AlvoInvestigacao rdfs:subClassOf :Estabelecimento .
+:PropriedadeContactante rdfs:subClassOf :Estabelecimento .
+:PessoaConvocada rdfs:subClassOf :Pessoa .
+:MembroEquipe rdfs:subClassOf :Pessoa .
+:PropriedadeTemporaria rdfs:subClassOf :Estabelecimento .
+
+#################################################################
+# Object properties
+#################################################################
+
+:estabelecimentoHasEndereco a owl:ObjectProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range :Endereco ;
+    rdfs:label "has address"@en .
+
+:analiseSanitariaHasAlvoInvestigacao a owl:ObjectProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range :AlvoInvestigacao ;
+    rdfs:label "has investigation target"@en .
+
+:analiseSanitariaHasAreaAfetada a owl:ObjectProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range :AreaAfetada ;
+    rdfs:label "has affected area"@en .
+
+:CriadaPor a owl:ObjectProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range :Pessoa ;
+    rdfs:label "created by"@en, "Criada por"@pt .
+
+:alvoInvestigacaoHasZonaControleInvestigacao a owl:ObjectProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range :ZonaControleInvestigacao ;
+    rdfs:label "has control zone"@en .
+
+:Origem a owl:ObjectProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range :Estabelecimento ;
+    rdfs:label "origin"@en, "Origem"@pt .
+
+:Destino a owl:ObjectProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range :Estabelecimento ;
+    rdfs:label "destination"@en, "Destino"@pt .
+
+:BaseadaEm a owl:ObjectProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range :AnaliseSanitaria ;
+    rdfs:label "based on"@en, "Baseada em"@pt .
+
+:Possui a owl:ObjectProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range :CicloVigilancia ;
+    rdfs:label "has cycle"@en, "Possui"@pt .
+
+:Tem a owl:ObjectProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range :PostoComando ;
+    rdfs:label "has command post"@en, "Tem"@pt .
+
+:Convoca a owl:ObjectProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range :RespostaSanitaria ;
+    rdfs:label "summons for"@en, "Convoca"@pt .
+
+:SubdivideSe a owl:ObjectProperty ;
+    rdfs:domain :CicloVigilancia ;
+    rdfs:range :ZonaPorCiclo ;
+    rdfs:label "subdivides into"@en, "Subdivide-se"@pt .
+
+:Aloca a owl:ObjectProperty ;
+    rdfs:domain :CicloVigilancia ;
+    rdfs:range :EquipeCampo ;
+    rdfs:label "allocates"@en, "Aloca"@pt .
+
+:ClassificaSe a owl:ObjectProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :TipoEquipe ;
+    rdfs:label "classified as"@en, "Classifica-se"@pt .
+
+:CompostaPor a owl:ObjectProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :MembroEquipe ;
+    rdfs:label "composed of"@en, "Composta por"@pt .
+
+:AtuaEm a owl:ObjectProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :AreaOperacional ;
+    rdfs:label "operates in"@en, "Atua em"@pt .
+
+:Utiliza a owl:ObjectProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :Veiculo ;
+    rdfs:label "uses"@en, "Utiliza"@pt .
+
+:Opera a owl:ObjectProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :BarreiraSanitaria ;
+    rdfs:label "operates"@en, "Opera"@pt .
+
+:Desempenha a owl:ObjectProperty ;
+    rdfs:domain :MembroEquipe ;
+    rdfs:range :Funcao ;
+    rdfs:label "performs"@en, "Desempenha"@pt .
+
+:PertenceA a owl:ObjectProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range :ZonaPorCiclo ;
+    rdfs:label "belongs to"@en, "Pertence a"@pt .
+
+:Contem a owl:ObjectProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range :PropriedadeEmArea ;
+    rdfs:label "contains"@en, "Contem"@pt .
+
+:RefereSeA a owl:ObjectProperty ;
+    rdfs:domain :PropriedadeEmArea ;
+    rdfs:range :Estabelecimento ;
+    rdfs:label "refers to"@en, "Refere-se a"@pt .
+
+:VinculadaA a owl:ObjectProperty ;
+    rdfs:domain :SubmissaoPropriedade ;
+    rdfs:range :PropriedadeEmArea ;
+    rdfs:label "linked to"@en, "Vinculada a"@pt .
+
+:RealizadaPor a owl:ObjectProperty ;
+    rdfs:domain :SubmissaoPropriedade ;
+    rdfs:range :EquipeCampo ;
+    rdfs:label "performed by"@en, "Realizada por"@pt .
+
+:submissaoBarreiraHasBarreiraSanitaria a owl:ObjectProperty ;
+    rdfs:domain :SubmissaoBarreira ;
+    rdfs:range :BarreiraSanitaria ;
+    rdfs:label "linked to barrier"@en .
+
+:especieAnimalHasEstabelecimento a owl:ObjectProperty ;
+    rdfs:domain :EspecieAnimal ;
+    rdfs:range :Estabelecimento ;
+    rdfs:label "explored in"@en .
+
+:categoriaEspecieHasEspecieAnimal a owl:ObjectProperty ;
+    rdfs:domain :CategoriaEspecie ;
+    rdfs:range :EspecieAnimal ;
+    rdfs:label "categorizes"@en .
+
+:rastreamentoGpsHasVeiculo a owl:ObjectProperty ;
+    rdfs:domain :RastreamentoGps ;
+    rdfs:range :Veiculo ;
+    rdfs:label "tracks vehicle"@en .
+
+#################################################################
+# Object properties — inverse and derived relations (axioms)
+#################################################################
+
+# AX-DEP-01: cycle belongs exclusively to one response
+:cicloPertenceAResposta a owl:ObjectProperty ;
+    owl:inverseOf :Possui ;
+    rdfs:domain :CicloVigilancia ;
+    rdfs:range :RespostaSanitaria ;
+    rdfs:label "belongs to response"@en .
+
+# AX-DEP-02: team belongs exclusively to one cycle
+:equipeAlocadaEm a owl:ObjectProperty ;
+    owl:inverseOf :Aloca ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range :CicloVigilancia ;
+    rdfs:label "allocated to cycle"@en .
+
+# AX-DEP-03: area belongs to a team
+:areaDaEquipe a owl:ObjectProperty ;
+    owl:inverseOf :AtuaEm ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range :EquipeCampo ;
+    rdfs:label "belongs to team"@en .
+
+# AX-DEP-04: property in area belongs to an operational area
+:contidaEmArea a owl:ObjectProperty ;
+    owl:inverseOf :Contem ;
+    rdfs:domain :PropriedadeEmArea ;
+    rdfs:range :AreaOperacional ;
+    rdfs:label "contained in area"@en .
+
+# AX-DEP-07: investigation target depends on an analysis
+:alvoDeAnalise a owl:ObjectProperty ;
+    owl:inverseOf :analiseSanitariaHasAlvoInvestigacao ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range :AnaliseSanitaria ;
+    rdfs:label "target of analysis"@en .
+
+# AX-DEP-09: command post linked to at most one response
+:postoDaResposta a owl:ObjectProperty ;
+    owl:inverseOf :Tem ;
+    rdfs:domain :PostoComando ;
+    rdfs:range :RespostaSanitaria ;
+    rdfs:label "command post of response"@en .
+
+# AX-SEQ-02: zone belongs to a cycle
+:zonaDoCiclo a owl:ObjectProperty ;
+    owl:inverseOf :SubdivideSe ;
+    rdfs:domain :ZonaPorCiclo ;
+    rdfs:range :CicloVigilancia ;
+    rdfs:label "zone of cycle"@en .
+
+# AX-SEQ-02: area reachable from its cycle (area -> zone -> cycle)
+:areaDoCiclo a owl:ObjectProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range :CicloVigilancia ;
+    owl:propertyChainAxiom ( :PertenceA :zonaDoCiclo ) ;
+    rdfs:label "cycle of area"@en .
+
+#################################################################
+# Datatype properties — Core
+#################################################################
+
+:codigoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:string ;
+    rdfs:label "SDA code"@en, "Codigo SDA"@pt .
+
+:nomeEstabelecimento a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:string ;
+    rdfs:label "establishment name"@en .
+
+:tipoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:string ;
+    rdfs:label "establishment type"@en .
+
+:ativoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active establishment"@en .
+
+:codigoCar a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:string ;
+    rdfs:label "CAR code"@en .
+
+:geometriaCar a owl:DatatypeProperty ;
+    rdfs:domain :Estabelecimento ;
+    rdfs:range xsd:string ;
+    rdfs:label "CAR geometry (WKT)"@en .
+
+:rua a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "street"@en, "Rua"@pt .
+
+:cep a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "postal code"@en, "CEP"@pt .
+
+:numeroEndereco a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "street number"@en .
+
+:bairro a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "district"@en, "Bairro"@pt .
+
+:cidade a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "city"@en, "Cidade"@pt .
+
+:uf a owl:DatatypeProperty ;
+    rdfs:domain :Endereco ;
+    rdfs:range xsd:string ;
+    rdfs:label "state"@en, "UF"@pt .
+
+:latitude a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:label "latitude"@en .
+
+:longitude a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:label "longitude"@en .
+
+:coordenadas a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "coordinates (WKT)"@en, "Coordenadas (WKT)"@pt ;
+    rdfs:comment "AX-GEO-02: coordinates stored as WKT strings (PostGIS GEOGRAPHY at implementation level; consumed as WKT literals by GeoSPARQL queries)."@en .
+
+:keycloakSubjectId a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:string ;
+    rdfs:label "Keycloak subject id"@en .
+
+:cpf a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:string ;
+    rdfs:label "CPF"@en .
+
+:nomePessoa a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:string ;
+    rdfs:label "person name"@en .
+
+:email a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:string ;
+    rdfs:label "email"@en .
+
+:dataCadastro a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "registration date"@en .
+
+:ativoPessoa a owl:DatatypeProperty ;
+    rdfs:domain :Pessoa ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active person"@en .
+
+:sistemaInspecao a owl:DatatypeProperty ;
+    rdfs:domain :Frigorifico ;
+    rdfs:range xsd:string ;
+    rdfs:label "inspection system (SIF/SIE/SIM)"@en .
+
+:numeroInspecao a owl:DatatypeProperty ;
+    rdfs:domain :Frigorifico ;
+    rdfs:range xsd:string ;
+    rdfs:label "inspection number"@en .
+
+:ativoFrigorifico a owl:DatatypeProperty ;
+    rdfs:domain :Frigorifico ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active slaughterhouse"@en .
+
+:finalidadeExploracao a owl:DatatypeProperty ;
+    rdfs:domain :GranjaSuino ;
+    rdfs:range xsd:string ;
+    rdfs:label "exploration purpose"@en .
+
+:integradora a owl:DatatypeProperty ;
+    rdfs:domain :GranjaSuino ;
+    rdfs:range xsd:string ;
+    rdfs:label "integrator company"@en .
+
+:registro a owl:DatatypeProperty ;
+    rdfs:domain :GranjaSuino ;
+    rdfs:range xsd:string ;
+    rdfs:label "registration"@en .
+
+:finalidadeExploracaoTipo a owl:DatatypeProperty ;
+    rdfs:domain :GranjaSuino ;
+    rdfs:range xsd:string ;
+    rdfs:label "exploration purpose type"@en .
+
+:especieExploracao a owl:DatatypeProperty ;
+    rdfs:domain :GranjaAve ;
+    rdfs:range xsd:string ;
+    rdfs:label "explored species"@en .
+
+:formaExploracao a owl:DatatypeProperty ;
+    rdfs:domain :GranjaAve ;
+    rdfs:range xsd:string ;
+    rdfs:label "exploration form"@en .
+
+:finalidadeProducao a owl:DatatypeProperty ;
+    rdfs:domain :GranjaAve ;
+    rdfs:range xsd:string ;
+    rdfs:label "production purpose"@en .
+
+:producaoComercial a owl:DatatypeProperty ;
+    rdfs:domain :GranjaAve ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "commercial production"@en .
+
+#################################################################
+# Datatype properties — Sanitary Investigation
+#################################################################
+
+:nomeAnalise a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "analysis name"@en .
+
+:analiseAtiva a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active analysis"@en .
+
+:criadaEm a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "created at"@en .
+
+:analisePublica a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "public analysis"@en .
+
+:exibirCar a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "show CAR"@en .
+
+:metadados a owl:DatatypeProperty ;
+    rdfs:domain :AnaliseSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "metadata filters"@en .
+
+:nomeAlvo a owl:DatatypeProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "target name"@en .
+
+:inicioMovimentacao a owl:DatatypeProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "movement start date"@en .
+
+:fimMovimentacao a owl:DatatypeProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "movement end date"@en .
+
+:movimentacaoEntrada a owl:DatatypeProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "incoming movements"@en .
+
+:movimentacaoSaida a owl:DatatypeProperty ;
+    rdfs:domain :AlvoInvestigacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "outgoing movements"@en .
+
+:nomeAreaAfetada a owl:DatatypeProperty ;
+    rdfs:domain :AreaAfetada ;
+    rdfs:range xsd:string ;
+    rdfs:label "affected area name"@en .
+
+:geometriaAreaAfetada a owl:DatatypeProperty ;
+    rdfs:domain :AreaAfetada ;
+    rdfs:range xsd:string ;
+    rdfs:label "affected area geometry (WKT)"@en .
+
+:tipoZona a owl:DatatypeProperty ;
+    rdfs:domain :ZonaControleInvestigacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "zone type"@en ;
+    rdfs:comment "Values: INFECTED (perifocal), BUFFER (surveillance), SURVEILLANCE (protection), INVESTIGATION."@en .
+
+:raio a owl:DatatypeProperty ;
+    rdfs:domain :ZonaControleInvestigacao ;
+    rdfs:range xsd:double ;
+    rdfs:label "zone radius"@en .
+
+:geometriaZona a owl:DatatypeProperty ;
+    rdfs:domain :ZonaControleInvestigacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "zone geometry (WKT)"@en .
+
+:serie a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:string ;
+    rdfs:label "GTA series"@en .
+
+:numeroGTA a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:string ;
+    rdfs:label "GTA number"@en .
+
+:ufOrigem a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:string ;
+    rdfs:label "origin state"@en .
+
+:especieMovimentada a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:string ;
+    rdfs:label "moved species"@en .
+
+:quantidadeAnimais a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:integer ;
+    rdfs:label "number of animals"@en .
+
+:finalidadeMovimentacao a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:string ;
+    rdfs:label "movement purpose"@en .
+
+:dataMovimentacao a owl:DatatypeProperty ;
+    rdfs:domain :MovimentacaoAnimal ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "movement date"@en .
+
+#################################################################
+# Datatype properties — Sanitary Response
+#################################################################
+
+:identificadorResposta a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "response identifier"@en .
+
+:prazoResposta a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "response due date"@en .
+
+:respostaAtiva a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active response"@en .
+
+:respostaConcluida a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "completed response"@en .
+
+:respostaPublica a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "public response"@en .
+
+:faseResposta a owl:DatatypeProperty ;
+    rdfs:domain :RespostaSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "response phase"@en .
+
+:numeroCiclo a owl:DatatypeProperty ;
+    rdfs:domain :CicloVigilancia ;
+    rdfs:range xsd:integer ;
+    rdfs:label "cycle number"@en .
+
+:cicloFechado a owl:DatatypeProperty ;
+    rdfs:domain :CicloVigilancia ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "closed cycle"@en .
+
+:dataInicioZona a owl:DatatypeProperty ;
+    rdfs:domain :ZonaPorCiclo ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "zone start date"@en .
+
+:dataFimZona a owl:DatatypeProperty ;
+    rdfs:domain :ZonaPorCiclo ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "zone end date"@en .
+
+:zonaFechada a owl:DatatypeProperty ;
+    rdfs:domain :ZonaPorCiclo ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "closed zone"@en .
+
+:pontosLimiteZona a owl:DatatypeProperty ;
+    rdfs:domain :ZonaPorCiclo ;
+    rdfs:range xsd:string ;
+    rdfs:label "zone boundary points"@en .
+
+:nomeEquipe a owl:DatatypeProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range xsd:string ;
+    rdfs:label "team name"@en .
+
+:equipeAtiva a owl:DatatypeProperty ;
+    rdfs:domain :EquipeCampo ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active team"@en .
+
+:nomeTipoEquipe a owl:DatatypeProperty ;
+    rdfs:domain :TipoEquipe ;
+    rdfs:range xsd:string ;
+    rdfs:label "team type name"@en .
+
+:setorEquipe a owl:DatatypeProperty ;
+    rdfs:domain :TipoEquipe ;
+    rdfs:range xsd:string ;
+    rdfs:label "team sector"@en .
+
+:corEquipe a owl:DatatypeProperty ;
+    rdfs:domain :TipoEquipe ;
+    rdfs:range xsd:string ;
+    rdfs:label "team colour"@en .
+
+:membroAtivo a owl:DatatypeProperty ;
+    rdfs:domain :MembroEquipe ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active member"@en .
+
+:nomeFuncao a owl:DatatypeProperty ;
+    rdfs:domain :Funcao ;
+    rdfs:range xsd:string ;
+    rdfs:label "function name"@en .
+
+:nomeArea a owl:DatatypeProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range xsd:string ;
+    rdfs:label "area name"@en .
+
+:corArea a owl:DatatypeProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range xsd:string ;
+    rdfs:label "area colour"@en .
+
+:pontosLimiteArea a owl:DatatypeProperty ;
+    rdfs:domain :AreaOperacional ;
+    rdfs:range xsd:string ;
+    rdfs:label "area boundary points"@en .
+
+:visitaConcluida a owl:DatatypeProperty ;
+    rdfs:domain :PropriedadeEmArea ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "visit completed"@en .
+
+:nomeBarreira a owl:DatatypeProperty ;
+    rdfs:domain :BarreiraSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "barrier name"@en .
+
+:tipoBarreira a owl:DatatypeProperty ;
+    rdfs:domain :BarreiraSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "barrier type"@en ;
+    rdfs:comment "Values: FIXED, MOBILE."@en .
+
+:papelBarreira a owl:DatatypeProperty ;
+    rdfs:domain :BarreiraSanitaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "barrier role"@en ;
+    rdfs:comment "Values: SANITARY, DIVERSION."@en .
+
+:placa a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:string ;
+    rdfs:label "license plate"@en .
+
+:modelo a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:string ;
+    rdfs:label "model"@en .
+
+:cor a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:string ;
+    rdfs:label "colour"@en .
+
+:marca a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:string ;
+    rdfs:label "brand"@en .
+
+:anoFabricacao a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:integer ;
+    rdfs:label "manufacturing year"@en .
+
+:tipoVeiculo a owl:DatatypeProperty ;
+    rdfs:domain :Veiculo ;
+    rdfs:range xsd:string ;
+    rdfs:label "vehicle type"@en .
+
+:nomePosto a owl:DatatypeProperty ;
+    rdfs:domain :PostoComando ;
+    rdfs:range xsd:string ;
+    rdfs:label "command post name"@en .
+
+:enderecoPosto a owl:DatatypeProperty ;
+    rdfs:domain :PostoComando ;
+    rdfs:range xsd:string ;
+    rdfs:label "command post address"@en .
+
+:observacoesPosto a owl:DatatypeProperty ;
+    rdfs:domain :PostoComando ;
+    rdfs:range xsd:string ;
+    rdfs:label "command post notes"@en .
+
+:emQuarentena a owl:DatatypeProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "in quarantine"@en .
+
+:quarentenaAte a owl:DatatypeProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "quarantine until"@en .
+
+:permissaoGestao a owl:DatatypeProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "management permission"@en .
+
+:permissaoObservacao a owl:DatatypeProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "observer permission"@en .
+
+:convocadaAtiva a owl:DatatypeProperty ;
+    rdfs:domain :PessoaConvocada ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "active summons"@en .
+
+:inicioRastreamento a owl:DatatypeProperty ;
+    rdfs:domain :RastreamentoGps ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "tracking start"@en .
+
+:fimRastreamento a owl:DatatypeProperty ;
+    rdfs:domain :RastreamentoGps ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "tracking end"@en .
+
+:rotuloRastreamento a owl:DatatypeProperty ;
+    rdfs:domain :RastreamentoGps ;
+    rdfs:range xsd:string ;
+    rdfs:label "tracking label"@en .
+
+:metadadosRastreamento a owl:DatatypeProperty ;
+    rdfs:domain :RastreamentoGps ;
+    rdfs:range xsd:string ;
+    rdfs:label "tracking metadata"@en .
+
+#################################################################
+# Datatype properties — Field Actions
+#################################################################
+
+:uuidSubmissao a owl:DatatypeProperty ;
+    rdfs:domain :SubmissaoPropriedade ;
+    rdfs:range xsd:string ;
+    rdfs:label "submission uuid"@en .
+
+:dadosSubmissao a owl:DatatypeProperty ;
+    rdfs:domain :SubmissaoPropriedade ;
+    rdfs:range xsd:string ;
+    rdfs:label "submission data"@en .
+
+:uuidSubmissaoBarreira a owl:DatatypeProperty ;
+    rdfs:domain :SubmissaoBarreira ;
+    rdfs:range xsd:string ;
+    rdfs:label "barrier submission uuid"@en .
+
+:dadosSubmissaoBarreira a owl:DatatypeProperty ;
+    rdfs:domain :SubmissaoBarreira ;
+    rdfs:range xsd:string ;
+    rdfs:label "barrier submission data"@en .
+
+:nomeContato a owl:DatatypeProperty ;
+    rdfs:domain :PropriedadeTemporaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "contact name"@en .
+
+:cpfCnpj a owl:DatatypeProperty ;
+    rdfs:domain :PropriedadeTemporaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "CPF/CNPJ"@en .
+
+:telefone a owl:DatatypeProperty ;
+    rdfs:domain :PropriedadeTemporaria ;
+    rdfs:range xsd:string ;
+    rdfs:label "phone number"@en .
+
+#################################################################
+# Axioms — Identity (AX-ID-01..04)
+#################################################################
+
+# AX-ID-01: every Establishment has a unique SDA code
+:Estabelecimento owl:hasKey ( :codigoEstabelecimento ) ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :codigoEstabelecimento ;
+        owl:cardinality 1
+    ] .
+
+# AX-ID-02: Slaughterhouse existence depends on Establishment (covered by subClassOf)
+
+# AX-ID-03: Person identified by keycloak id, CPF and email
+:Pessoa owl:hasKey ( :keycloakSubjectId ) ;
+    owl:hasKey ( :cpf ) ;
+    owl:hasKey ( :email ) ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :keycloakSubjectId ;
+        owl:cardinality 1
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :cpf ;
+        owl:cardinality 1
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :email ;
+        owl:cardinality 1
+    ] .
+
+# AX-ID-04: animal movement identified by (series, number, origin state)
+:MovimentacaoAnimal owl:hasKey ( :serie :numeroGTA :ufOrigem ) ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :serie ;
+        owl:cardinality 1
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :numeroGTA ;
+        owl:cardinality 1
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :ufOrigem ;
+        owl:cardinality 1
+    ] .
+
+#################################################################
+# Axioms — Dependency (AX-DEP-01..09)
+#################################################################
+
+# AX-DEP-01: Surveillance Cycle belongs exclusively to a Sanitary Response
+:CicloVigilancia rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :cicloPertenceAResposta ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-02: Field Team belongs exclusively to a Surveillance Cycle
+:EquipeCampo rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :equipeAlocadaEm ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-03: Operational Area belongs to a Field Team and a Zone per Cycle
+:AreaOperacional rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :areaDaEquipe ;
+    owl:cardinality 1
+] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :PertenceA ;
+        owl:cardinality 1
+    ] .
+
+# AX-DEP-04: Property in Area belongs to an Operational Area
+:PropriedadeEmArea rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :contidaEmArea ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-05: Property Submission links to a Property in Area and a Field Team
+:SubmissaoPropriedade rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :VinculadaA ;
+    owl:cardinality 1
+] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :RealizadaPor ;
+        owl:cardinality 1
+    ] .
+
+# AX-DEP-06: Barrier Submission links to a Sanitary Barrier
+:SubmissaoBarreira rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :submissaoBarreiraHasBarreiraSanitaria ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-07: Investigation Target depends on a Sanitary Analysis
+:AlvoInvestigacao rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :alvoDeAnalise ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-08: Sanitary Response depends on a Sanitary Analysis
+:RespostaSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :BaseadaEm ;
+    owl:cardinality 1
+] .
+
+# AX-DEP-09: Command Post linked to at most one Sanitary Response (and vice versa)
+:RespostaSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :Tem ;
+    owl:maxCardinality 1
+] .
+
+:PostoComando rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :postoDaResposta ;
+    owl:maxCardinality 1
+] .
+
+#################################################################
+# Axioms — Sequence and Temporality (AX-SEQ-01..05)
+#################################################################
+
+# AX-SEQ-01: cycles follow sequential ordering within a response
+:CicloVigilancia owl:hasKey ( :numeroCiclo :cicloPertenceAResposta ) ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :numeroCiclo ;
+        owl:cardinality 1
+    ] .
+
+# AX-SEQ-02: a cycle can only be closed when all its areas are completed
+:CicloFechado a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            :CicloVigilancia
+            [
+                a owl:Restriction ;
+                owl:onProperty :cicloFechado ;
+                owl:hasValue true
+            ]
+        )
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :areaDoCiclo ;
+        owl:allValuesFrom :AreaConcluida
+    ] ;
+    rdfs:label "Closed Surveillance Cycle"@en, "Ciclo de Vigilancia Fechado"@pt .
+
+# AX-SEQ-03: an area is completed when all its properties are visited
+:AreaConcluida a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            :AreaOperacional
+            [
+                a owl:Restriction ;
+                owl:onProperty :Contem ;
+                owl:allValuesFrom :PropriedadeVisitada
+            ]
+            [
+                a owl:Restriction ;
+                owl:onProperty :Contem ;
+                owl:minCardinality 1
+            ]
+        )
+    ] ;
+    rdfs:label "Completed Operational Area"@en, "Area Operacional Concluida"@pt .
+
+:PropriedadeVisitada a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            :PropriedadeEmArea
+            [
+                a owl:Restriction ;
+                owl:onProperty :visitaConcluida ;
+                owl:hasValue true
+            ]
+        )
+    ] ;
+    rdfs:label "Visited Property in Area"@en, "Propriedade em Area Visitada"@pt .
+
+# AX-SEQ-04: a property in area can be reopened after completion (state transition)
+:PropriedadeEmArea rdfs:comment "AX-SEQ-04: the visit status may transition from completed back to pending (reopen operation); modelled as a state transition, not as an OWL restriction."@en .
+
+# AX-SEQ-05: GPS tracking has a start and an optional end
+:RastreamentoGps rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :inicioRastreamento ;
+    owl:cardinality 1
+] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :fimRastreamento ;
+        owl:maxCardinality 1
+    ] .
+
+#################################################################
+# Axioms — Cardinality and Uniqueness (AX-CARD-01..05)
+#################################################################
+
+# AX-CARD-01: a person can only be summoned once for the same response
+:PessoaConvocada owl:hasKey ( :keycloakSubjectId :Convoca ) .
+
+# AX-CARD-02: an establishment can be the target of multiple simultaneous investigations
+# (no uniqueness constraint between analysis and establishment — absence of restriction)
+
+# AX-CARD-03: a team can have multiple members
+:EquipeCampo rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :CompostaPor ;
+    owl:minCardinality 1
+] .
+
+# AX-CARD-04: an establishment can be in multiple operational areas
+# (no uniqueness constraint on premise + response in area_premises — absence of restriction)
+
+# AX-CARD-05: a sanitary analysis can have multiple targets
+:AnaliseSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :analiseSanitariaHasAlvoInvestigacao ;
+    owl:minCardinality 1
+] .
+
+#################################################################
+# Axioms — State (AX-STATE-01..06)
+#################################################################
+
+# AX-STATE-01: a sanitary analysis can be active or inactive
+:AnaliseSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :analiseAtiva ;
+    owl:cardinality 1
+] .
+
+# AX-STATE-02: a sanitary response can be active or completed
+:RespostaSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :respostaAtiva ;
+    owl:cardinality 1
+] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :respostaConcluida ;
+        owl:cardinality 1
+    ] .
+
+# AX-STATE-03: a zone per cycle can be open or closed
+:ZonaPorCiclo rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :zonaFechada ;
+    owl:cardinality 1
+] .
+
+# AX-STATE-04: a property in area can be completed or pending
+:PropriedadeEmArea rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :visitaConcluida ;
+    owl:cardinality 1
+] .
+
+# AX-STATE-05: a summoned person can be in quarantine with an expiry date
+:PessoaEmQuarentena a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            :PessoaConvocada
+            [
+                a owl:Restriction ;
+                owl:onProperty :emQuarentena ;
+                owl:hasValue true
+            ]
+        )
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :quarentenaAte ;
+        owl:cardinality 1
+    ] ;
+    rdfs:label "Person in Quarantine"@en, "Pessoa em Quarentena"@pt .
+
+:PessoaConvocada rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :emQuarentena ;
+    owl:cardinality 1
+] .
+
+# AX-STATE-06: a summoned person can have management and/or observer permissions
+:PessoaConvocada rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :permissaoGestao ;
+    owl:cardinality 1
+] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :permissaoObservacao ;
+        owl:cardinality 1
+    ] .
+
+#################################################################
+# Axioms — Geographic (AX-GEO-01..02)
+#################################################################
+
+# AX-GEO-01: an investigation target has up to three concentric zones
+:AlvoInvestigacao rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :alvoInvestigacaoHasZonaControleInvestigacao ;
+    owl:maxCardinality 3
+] .
+
+# AX-GEO-02: coordinates of targets and barriers are stored as WKT geometries
+:AlvoInvestigacao rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :coordenadas ;
+    owl:cardinality 1
+] .
+
+:BarreiraSanitaria rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty :coordenadas ;
+    owl:cardinality 1
+] .

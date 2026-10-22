@@ -1,0 +1,57 @@
+---
+title: SIGEVS-O Ontology — Investigation Subdomain
+---
+classDiagram
+    class SanitaryAnalysis {
+        <<Event>>
+    }
+    class Person {
+        <<Kind>>
+    }
+    class InvestigationTarget {
+        <<Role>>
+    }
+    class AffectedArea {
+        <<Kind>>
+    }
+    class ControlZone {
+        <<Relator>>
+    }
+    class AnimalMovement {
+        <<Event>>
+    }
+    class Establishment {
+        <<Kind>>
+    }
+    class ContactingProperty {
+        <<Role>>
+    }
+    class SpeciesCategory {
+        <<Enumeration>>
+    }
+    class AnimalSpecies {
+        <<Kind>>
+    }
+
+    SanitaryAnalysis --> Person : createdBy
+    SanitaryAnalysis --> InvestigationTarget : delimits
+    SanitaryAnalysis --> AffectedArea : involves
+    SanitaryAnalysis --> SpeciesCategory : involves
+    InvestigationTarget --> ControlZone : hasZone
+    AffectedArea --> ControlZone : delimitedBy
+    AnimalMovement --> Establishment : origin
+    AnimalMovement --> Establishment : destination
+    InvestigationTarget --> AnimalMovement : tracks
+    InvestigationTarget --> ContactingProperty : identifies
+    AnimalSpecies --> SpeciesCategory : classifiedBy
+
+    style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style InvestigationTarget fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AffectedArea fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ControlZone fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AnimalMovement fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ContactingProperty fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style SpeciesCategory fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style AnimalSpecies fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px

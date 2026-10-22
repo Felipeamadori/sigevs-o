@@ -1,0 +1,39 @@
+---
+title: SIGEVS-O Ontology — Field Actions Subdomain
+---
+classDiagram
+    class PropertySubmission {
+        <<Event>>
+    }
+    class BarrierSubmission {
+        <<Event>>
+    }
+    class TemporaryProperty {
+        <<Role>>
+    }
+    class VisitConclusion {
+        <<Phase>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+
+    PropertyInArea --> PropertySubmission : generates
+    PropertySubmission --> FieldTeam : performedBy
+    PropertySubmission --> VisitConclusion : resultsIn
+    PropertySubmission --> TemporaryProperty : mayIdentify
+    SanitaryBarrier --> BarrierSubmission : generates
+
+    style PropertySubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style BarrierSubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style TemporaryProperty fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style VisitConclusion fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

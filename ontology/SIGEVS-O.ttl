@@ -1,0 +1,217 @@
+@prefix : <https://sigevs.ontologies#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://sigevs.ontologies> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Estabelecimento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Estabelecimento"@en.
+:Endereco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Endereco"@en.
+:Pessoa rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pessoa"@en.
+:EspecieAnimal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EspecieAnimal"@en.
+:Frigorifico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Frigorifico"@en.
+:GranjaAve rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GranjaAve"@en.
+:GranjaSuino rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "GranjaSuino"@en.
+:CAR rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "CAR"@en.
+:AnaliseSanitaria rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "AnaliseSanitaria"@en.
+:AlvoInvestigacao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AlvoInvestigacao"@en.
+:AreaAfetada rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AreaAfetada"@en.
+:ZonaControleInvestigacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ZonaControleInvestigacao"@en.
+:MovimentacaoAnimal rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "MovimentacaoAnimal"@en.
+:PropriedadeContactante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PropriedadeContactante"@en.
+:CategoriaEspecie rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue;
+    owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:oneOf ()
+];
+    rdfs:label "CategoriaEspecie"@en.
+:RespostaSanitaria rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "RespostaSanitaria"@en.
+:CicloVigilancia rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "CicloVigilancia"@en.
+:ZonaPorCiclo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "ZonaPorCiclo"@en.
+:EquipeCampo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:VariableCollection;
+    rdfs:label "EquipeCampo"@en.
+:MembroEquipe rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "MembroEquipe"@en.
+:Funcao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Funcao"@en.
+:AreaOperacional rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "AreaOperacional"@en.
+:PropriedadeEmArea rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "PropriedadeEmArea"@en.
+:BarreiraSanitaria rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "BarreiraSanitaria"@en.
+:Veiculo rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Veiculo"@en.
+:PostoComando rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PostoComando"@en.
+:PessoaConvocada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PessoaConvocada"@en.
+:RastreamentoGps rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "RastreamentoGps"@en.
+:TipoEquipe rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "TipoEquipe"@en.
+:SubmissaoPropriedade rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "SubmissaoPropriedade"@en.
+:SubmissaoBarreira rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "SubmissaoBarreira"@en.
+:PropriedadeTemporaria rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PropriedadeTemporaria"@en.
+:Frigorifico rdfs:subClassOf :Estabelecimento.
+:GranjaAve rdfs:subClassOf :Estabelecimento.
+:GranjaSuino rdfs:subClassOf :Estabelecimento.
+:AlvoInvestigacao rdfs:subClassOf :Estabelecimento.
+:PropriedadeContactante rdfs:subClassOf :Estabelecimento.
+:PessoaConvocada rdfs:subClassOf :Pessoa.
+:MembroEquipe rdfs:subClassOf :Pessoa.
+:PropriedadeTemporaria rdfs:subClassOf :Estabelecimento.
+:estabelecimentoHasEndereco rdf:type owl:ObjectProperty;
+    rdfs:domain :Estabelecimento;
+    rdfs:range :Endereco;
+    rdfs:label ""@en.
+:estabelecimentoHasCar rdf:type owl:ObjectProperty;
+    rdfs:domain :Estabelecimento;
+    rdfs:range :CAR.
+:analiseSanitariaHasAlvoInvestigacao rdf:type owl:ObjectProperty;
+    rdfs:domain :AnaliseSanitaria;
+    rdfs:range :AlvoInvestigacao.
+:analiseSanitariaHasAreaAfetada rdf:type owl:ObjectProperty;
+    rdfs:domain :AnaliseSanitaria;
+    rdfs:range :AreaAfetada.
+:CriadaPor rdf:type owl:ObjectProperty;
+    rdfs:domain :AnaliseSanitaria;
+    rdfs:range :Pessoa;
+    rdfs:label "Criada por"@en.
+:alvoInvestigacaoHasZonaControleInvestigacao rdf:type owl:ObjectProperty;
+    rdfs:domain :AlvoInvestigacao;
+    rdfs:range :ZonaControleInvestigacao.
+:Origem rdf:type owl:ObjectProperty;
+    rdfs:domain :MovimentacaoAnimal;
+    rdfs:range :Estabelecimento;
+    rdfs:label "Origem"@en.
+:Destino rdf:type owl:ObjectProperty;
+    rdfs:domain :MovimentacaoAnimal;
+    rdfs:range :Estabelecimento;
+    rdfs:label "Destino"@en.
+:BaseadaEm rdf:type owl:ObjectProperty;
+    rdfs:domain :RespostaSanitaria;
+    rdfs:range :AnaliseSanitaria;
+    rdfs:label "Baseada em"@en.
+:Possui rdf:type owl:ObjectProperty;
+    rdfs:domain :RespostaSanitaria;
+    rdfs:range :CicloVigilancia;
+    rdfs:label "Possui"@en.
+:Tem rdf:type owl:ObjectProperty;
+    rdfs:domain :RespostaSanitaria;
+    rdfs:range :PostoComando;
+    rdfs:label "Tem"@en.
+:Convoca rdf:type owl:ObjectProperty;
+    rdfs:domain :PessoaConvocada;
+    rdfs:range :RespostaSanitaria;
+    rdfs:label "Convoca"@en.
+:SubdivideSe rdf:type owl:ObjectProperty;
+    rdfs:domain :CicloVigilancia;
+    rdfs:range :ZonaPorCiclo;
+    rdfs:label "Subdivide-se"@en.
+:Aloca rdf:type owl:ObjectProperty;
+    rdfs:domain :CicloVigilancia;
+    rdfs:range :EquipeCampo;
+    rdfs:label "Aloca"@en.
+:ClassificaSe rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeCampo;
+    rdfs:range :TipoEquipe;
+    rdfs:label "Classifica-se"@en.
+:CompostaPor rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeCampo;
+    rdfs:range :MembroEquipe;
+    rdfs:label "Composta por"@en.
+:AtuaEm rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeCampo;
+    rdfs:range :AreaOperacional;
+    rdfs:label "Atua em"@en.
+:Utiliza rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeCampo;
+    rdfs:range :Veiculo;
+    rdfs:label "Utiliza"@en.
+:Opera rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeCampo;
+    rdfs:range :BarreiraSanitaria;
+    rdfs:label "Opera"@en.
+:Desempenha rdf:type owl:ObjectProperty;
+    rdfs:domain :MembroEquipe;
+    rdfs:range :Funcao;
+    rdfs:label "Desempenha"@en.
+:PertenceA rdf:type owl:ObjectProperty;
+    rdfs:domain :AreaOperacional;
+    rdfs:range :ZonaPorCiclo;
+    rdfs:label "Pertence a"@en.
+:Contem rdf:type owl:ObjectProperty;
+    rdfs:domain :AreaOperacional;
+    rdfs:range :PropriedadeEmArea;
+    rdfs:label "Contem"@en.
+:RefereSeA rdf:type owl:ObjectProperty;
+    rdfs:domain :PropriedadeEmArea;
+    rdfs:range :Estabelecimento;
+    rdfs:label "Refere-se a"@en.
+:VinculadaA rdf:type owl:ObjectProperty;
+    rdfs:domain :SubmissaoPropriedade;
+    rdfs:range :PropriedadeEmArea;
+    rdfs:label "Vinculada a"@en.
+:RealizadaPor rdf:type owl:ObjectProperty;
+    rdfs:domain :SubmissaoPropriedade;
+    rdfs:range :EquipeCampo;
+    rdfs:label "Realizada por"@en.
+:submissaoBarreiraHasBarreiraSanitaria rdf:type owl:ObjectProperty;
+    rdfs:domain :SubmissaoBarreira;
+    rdfs:range :BarreiraSanitaria.
+:especieAnimalHasEstabelecimento rdf:type owl:ObjectProperty;
+    rdfs:domain :EspecieAnimal;
+    rdfs:range :Estabelecimento.
+:categoriaEspecieHasEspecieAnimal rdf:type owl:ObjectProperty;
+    rdfs:domain :CategoriaEspecie;
+    rdfs:range :EspecieAnimal.
+:rastreamentoGpsHasVeiculo rdf:type owl:ObjectProperty;
+    rdfs:domain :RastreamentoGps;
+    rdfs:range :Veiculo.

@@ -1,0 +1,15 @@
+PREFIX sigevs: <https://sigevs.ontologies#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT ?propriedade ?nome WHERE {
+  ?alvo a sigevs:AlvoInvestigacao ;
+        sigevs:coordenadas ?alvoCoord ;
+        sigevs:alvoInvestigacaoHasZonaControleInvestigacao ?zona .
+  ?zona sigevs:tipoZona "INFECTED" ;
+        sigevs:raio ?raio .
+  ?propriedade a sigevs:Estabelecimento ;
+               sigevs:nomeEstabelecimento ?nome ;
+               sigevs:coordenadas ?propCoord .
+  FILTER(geof:distance(?alvoCoord, ?propCoord) <= ?raio)
+}
+ORDER BY ?nome

@@ -1,0 +1,38 @@
+---
+title: PDSA-RS Platform Architecture
+---
+graph LR
+    subgraph CLIENT["Client Front End"]
+        direction LR
+        MAPA["Portal MAPA"]
+        SVE["Portal SVE"]
+        RT["Portal RT"]
+        LAB["Portal LAB"]
+        MOB["Mobile App"]
+    end
+
+    GW["API Gateway"]
+
+    subgraph BIZ["Business Microservices (Spring Boot)"]
+        direction LR
+        GEO["Geoanalysis API\n(SIGEVS)"]
+        ESTQ["Inventory API"]
+        CERTAVES["Poultry Cert. API"]
+        CERTSUINOS["Swine Cert. API"]
+        OUTRAS["Others API"]
+    end
+
+    subgraph SVC["Service Microservices (Spring Boot)"]
+        direction LR
+        DOC["Documents API"]
+        NOTIF["Notification API"]
+        PLAN["Spreadsheets API"]
+    end
+
+    DB[("PostgreSQL / PostGIS")]
+
+    CLIENT --> GW
+    GW --> BIZ
+    GW --> SVC
+    BIZ --> DB
+    SVC --> DB

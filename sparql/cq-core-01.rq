@@ -1,0 +1,7 @@
+PREFIX sigevs: <https://sigevs.ontologies#>
+
+SELECT ?estabelecimento ?nome WHERE {
+  ?estabelecimento a sigevs:Estabelecimento ;
+                   sigevs:nomeEstabelecimento ?nome .
+}
+ORDER BY ?nome

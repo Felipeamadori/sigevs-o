@@ -1,0 +1,3621 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://sigevs.ontologies"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://sigevs.ontologies">
+    <Prefix name="" IRI="https://sigevs.ontologies#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="gufo" IRI="http://purl.org/nemo/gufo#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://purl.org/nemo/gufo#</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">SIGEVS-O: A Domain Ontology for Veterinary Emergency Management. gUFO/OWL formalisation completed from the Visual Paradigm export (SIGEVS-O.ttl), including attributes, inverse relations, keys and the formal axioms documented in the SABiOx artefacts.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal>1.0</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#AlvoInvestigacao"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AnaliseSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AreaAfetada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AreaConcluida"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AreaOperacional"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BarreiraSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CategoriaEspecie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CicloFechado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CicloVigilancia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Endereco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EquipeCampo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EspecieAnimal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Estabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Frigorifico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Funcao"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GranjaAve"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GranjaSuino"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MembroEquipe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pessoa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PessoaConvocada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PessoaEmQuarentena"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PostoComando"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PropriedadeContactante"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PropriedadeEmArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PropriedadeTemporaria"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PropriedadeVisitada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RastreamentoGps"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RespostaSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubmissaoBarreira"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubmissaoPropriedade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TipoEquipe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Veiculo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ZonaControleInvestigacao"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ZonaPorCiclo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Aloca"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#AtuaEm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#BaseadaEm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ClassificaSe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#CompostaPor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Contem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Convoca"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#CriadaPor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Desempenha"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Destino"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Opera"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Origem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#PertenceA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Possui"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#RealizadaPor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#RefereSeA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#SubdivideSe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Tem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Utiliza"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#VinculadaA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#alvoDeAnalise"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#alvoInvestigacaoHasZonaControleInvestigacao"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#analiseSanitariaHasAlvoInvestigacao"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#analiseSanitariaHasAreaAfetada"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#areaDaEquipe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#areaDoCiclo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#categoriaEspecieHasEspecieAnimal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#cicloPertenceAResposta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contidaEmArea"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#equipeAlocadaEm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#especieAnimalHasEstabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#estabelecimentoHasEndereco"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#postoDaResposta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#rastreamentoGpsHasVeiculo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#submissaoBarreiraHasBarreiraSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#zonaDoCiclo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#analiseAtiva"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#analisePublica"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#anoFabricacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ativoEstabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ativoFrigorifico"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ativoPessoa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#codigoCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#geometriaCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#bairro"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cep"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cicloFechado"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cidade"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#codigoEstabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#convocadaAtiva"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#coordenadas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#corArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#corEquipe"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cpf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cpfCnpj"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#criadaEm"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dadosSubmissao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dadosSubmissaoBarreira"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dataCadastro"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dataFimZona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dataInicioZona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dataMovimentacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#emQuarentena"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#email"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#enderecoPosto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#equipeAtiva"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#especieExploracao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#especieMovimentada"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#exibirCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#faseResposta"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#fimMovimentacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#fimRastreamento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#finalidadeExploracao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#finalidadeExploracaoTipo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#finalidadeMovimentacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#finalidadeProducao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#formaExploracao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#geometriaAreaAfetada"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#geometriaZona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#identificadorResposta"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#inicioMovimentacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#inicioRastreamento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#integradora"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#keycloakSubjectId"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#latitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#longitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#marca"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#membroAtivo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metadados"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metadadosRastreamento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#modelo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#movimentacaoEntrada"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#movimentacaoSaida"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeAlvo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeAnalise"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeAreaAfetada"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeBarreira"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeContato"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeEquipe"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeEstabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeFuncao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomePessoa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomePosto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeTipoEquipe"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroCiclo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroEndereco"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroGTA"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroInspecao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#observacoesPosto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#papelBarreira"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#permissaoGestao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#permissaoObservacao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#placa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pontosLimiteArea"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pontosLimiteZona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#prazoResposta"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#producaoComercial"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#quantidadeAnimais"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#quarentenaAte"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#raio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#registro"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#respostaAtiva"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#respostaConcluida"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#respostaPublica"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rotuloRastreamento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rua"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#serie"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#setorEquipe"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sistemaInspecao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#telefone"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipoBarreira"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipoEstabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipoVeiculo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipoZona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#uf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ufOrigem"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#uuidSubmissao"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#uuidSubmissaoBarreira"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#visitaConcluida"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zonaFechada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AlvoInvestigacao"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AnaliseSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AreaAfetada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AreaOperacional"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BarreiraSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaAves"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaBovinos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaEspecie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaOutros"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaOvinos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CategoriaSuinos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CicloVigilancia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Endereco"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EspecieAnimal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Estabelecimento"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Frigorifico"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Funcao"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GranjaAve"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GranjaSuino"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MembroEquipe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MovimentacaoAnimal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pessoa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PessoaConvocada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PostoComando"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PropriedadeContactante"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PropriedadeTemporaria"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RastreamentoGps"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RespostaSanitaria"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SubmissaoBarreira"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SubmissaoPropriedade"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TipoEquipe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Veiculo"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#AreaConcluida"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AreaOperacional"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#Contem"/>
+                <Class IRI="#PropriedadeVisitada"/>
+            </ObjectAllValuesFrom>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#Contem"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CategoriaEspecie"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#CategoriaAves"/>
+            <NamedIndividual IRI="#CategoriaBovinos"/>
+            <NamedIndividual IRI="#CategoriaOutros"/>
+            <NamedIndividual IRI="#CategoriaOvinos"/>
+            <NamedIndividual IRI="#CategoriaSuinos"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CicloFechado"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#CicloVigilancia"/>
+            <DataHasValue>
+                <DataProperty IRI="#cicloFechado"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PessoaEmQuarentena"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#PessoaConvocada"/>
+            <DataHasValue>
+                <DataProperty IRI="#emQuarentena"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PropriedadeVisitada"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#PropriedadeEmArea"/>
+            <DataHasValue>
+                <DataProperty IRI="#visitaConcluida"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AlvoInvestigacao"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AlvoInvestigacao"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#alvoDeAnalise"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AlvoInvestigacao"/>
+        <ObjectMaxCardinality cardinality="3">
+            <ObjectProperty IRI="#alvoInvestigacaoHasZonaControleInvestigacao"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AlvoInvestigacao"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#coordenadas"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnaliseSanitaria"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnaliseSanitaria"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#analiseSanitariaHasAlvoInvestigacao"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnaliseSanitaria"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#analiseAtiva"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaAfetada"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaOperacional"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaOperacional"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#PertenceA"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaOperacional"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#areaDaEquipe"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BarreiraSanitaria"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BarreiraSanitaria"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#coordenadas"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CategoriaEspecie"/>
+        <Class abbreviatedIRI="gufo:QualityValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CicloFechado"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#areaDoCiclo"/>
+            <Class IRI="#AreaConcluida"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CicloVigilancia"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CicloVigilancia"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#cicloPertenceAResposta"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CicloVigilancia"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#numeroCiclo"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Endereco"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EquipeCampo"/>
+        <Class abbreviatedIRI="gufo:VariableCollection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EquipeCampo"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#CompostaPor"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EquipeCampo"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#equipeAlocadaEm"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EspecieAnimal"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estabelecimento"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estabelecimento"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#codigoEstabelecimento"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Frigorifico"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Funcao"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GranjaAve"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GranjaSuino"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MembroEquipe"/>
+        <Class IRI="#Pessoa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovimentacaoAnimal"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovimentacaoAnimal"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#numeroGTA"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovimentacaoAnimal"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#serie"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovimentacaoAnimal"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#ufOrigem"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pessoa"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pessoa"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#cpf"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pessoa"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#email"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pessoa"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#keycloakSubjectId"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PessoaConvocada"/>
+        <Class IRI="#Pessoa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PessoaConvocada"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#emQuarentena"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PessoaConvocada"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#permissaoGestao"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PessoaConvocada"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#permissaoObservacao"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PessoaEmQuarentena"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#quarentenaAte"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PostoComando"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PostoComando"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#postoDaResposta"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PropriedadeContactante"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PropriedadeEmArea"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PropriedadeEmArea"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#contidaEmArea"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PropriedadeEmArea"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#visitaConcluida"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PropriedadeTemporaria"/>
+        <Class IRI="#Estabelecimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RastreamentoGps"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RastreamentoGps"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#inicioRastreamento"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RastreamentoGps"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#fimRastreamento"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RespostaSanitaria"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RespostaSanitaria"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#BaseadaEm"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RespostaSanitaria"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#Tem"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RespostaSanitaria"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#respostaAtiva"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RespostaSanitaria"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#respostaConcluida"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmissaoBarreira"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmissaoBarreira"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#submissaoBarreiraHasBarreiraSanitaria"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmissaoPropriedade"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmissaoPropriedade"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#RealizadaPor"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmissaoPropriedade"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#VinculadaA"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TipoEquipe"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Veiculo"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZonaControleInvestigacao"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZonaPorCiclo"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZonaPorCiclo"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#zonaFechada"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Role"/>
+        <NamedIndividual IRI="#AlvoInvestigacao"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#AnaliseSanitaria"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#AreaAfetada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#AreaOperacional"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#BarreiraSanitaria"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CategoriaEspecie"/>
+        <NamedIndividual IRI="#CategoriaAves"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CategoriaEspecie"/>
+        <NamedIndividual IRI="#CategoriaBovinos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:AbstractIndividualType"/>
+        <NamedIndividual IRI="#CategoriaEspecie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CategoriaEspecie"/>
+        <NamedIndividual IRI="#CategoriaOutros"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CategoriaEspecie"/>
+        <NamedIndividual IRI="#CategoriaOvinos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CategoriaEspecie"/>
+        <NamedIndividual IRI="#CategoriaSuinos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#CicloVigilancia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#Endereco"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#EspecieAnimal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#Estabelecimento"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:SubKind"/>
+        <NamedIndividual IRI="#Frigorifico"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#Funcao"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:SubKind"/>
+        <NamedIndividual IRI="#GranjaAve"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:SubKind"/>
+        <NamedIndividual IRI="#GranjaSuino"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Role"/>
+        <NamedIndividual IRI="#MembroEquipe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#MovimentacaoAnimal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#Pessoa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Role"/>
+        <NamedIndividual IRI="#PessoaConvocada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#PostoComando"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Role"/>
+        <NamedIndividual IRI="#PropriedadeContactante"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Role"/>
+        <NamedIndividual IRI="#PropriedadeTemporaria"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#RastreamentoGps"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#RespostaSanitaria"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#SubmissaoBarreira"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:EventType"/>
+        <NamedIndividual IRI="#SubmissaoPropriedade"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#TipoEquipe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="gufo:Kind"/>
+        <NamedIndividual IRI="#Veiculo"/>
+    </ClassAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#Aloca"/>
+        <ObjectProperty IRI="#equipeAlocadaEm"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#AtuaEm"/>
+        <ObjectProperty IRI="#areaDaEquipe"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#Contem"/>
+        <ObjectProperty IRI="#contidaEmArea"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#Possui"/>
+        <ObjectProperty IRI="#cicloPertenceAResposta"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#SubdivideSe"/>
+        <ObjectProperty IRI="#zonaDoCiclo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#Tem"/>
+        <ObjectProperty IRI="#postoDaResposta"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#alvoDeAnalise"/>
+        <ObjectProperty IRI="#analiseSanitariaHasAlvoInvestigacao"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Aloca"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#AtuaEm"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#BaseadaEm"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ClassificaSe"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#CompostaPor"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Contem"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Convoca"/>
+        <Class IRI="#PessoaConvocada"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#CriadaPor"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Desempenha"/>
+        <Class IRI="#MembroEquipe"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Destino"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Opera"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Origem"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#PertenceA"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Possui"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#RealizadaPor"/>
+        <Class IRI="#SubmissaoPropriedade"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#RefereSeA"/>
+        <Class IRI="#PropriedadeEmArea"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#SubdivideSe"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Tem"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Utiliza"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#VinculadaA"/>
+        <Class IRI="#SubmissaoPropriedade"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#alvoDeAnalise"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#alvoInvestigacaoHasZonaControleInvestigacao"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#analiseSanitariaHasAlvoInvestigacao"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#analiseSanitariaHasAreaAfetada"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#areaDaEquipe"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#areaDoCiclo"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#categoriaEspecieHasEspecieAnimal"/>
+        <Class IRI="#CategoriaEspecie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#cicloPertenceAResposta"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#contidaEmArea"/>
+        <Class IRI="#PropriedadeEmArea"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#equipeAlocadaEm"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#especieAnimalHasEstabelecimento"/>
+        <Class IRI="#EspecieAnimal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#estabelecimentoHasEndereco"/>
+        <Class IRI="#Estabelecimento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#postoDaResposta"/>
+        <Class IRI="#PostoComando"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#rastreamentoGpsHasVeiculo"/>
+        <Class IRI="#RastreamentoGps"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#submissaoBarreiraHasBarreiraSanitaria"/>
+        <Class IRI="#SubmissaoBarreira"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#zonaDoCiclo"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Aloca"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#AtuaEm"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#BaseadaEm"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ClassificaSe"/>
+        <Class IRI="#TipoEquipe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#CompostaPor"/>
+        <Class IRI="#MembroEquipe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Contem"/>
+        <Class IRI="#PropriedadeEmArea"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Convoca"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#CriadaPor"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Desempenha"/>
+        <Class IRI="#Funcao"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Destino"/>
+        <Class IRI="#Estabelecimento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Opera"/>
+        <Class IRI="#BarreiraSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Origem"/>
+        <Class IRI="#Estabelecimento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#PertenceA"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Possui"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#RealizadaPor"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#RefereSeA"/>
+        <Class IRI="#Estabelecimento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#SubdivideSe"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Tem"/>
+        <Class IRI="#PostoComando"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Utiliza"/>
+        <Class IRI="#Veiculo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#VinculadaA"/>
+        <Class IRI="#PropriedadeEmArea"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#alvoDeAnalise"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#alvoInvestigacaoHasZonaControleInvestigacao"/>
+        <Class IRI="#ZonaControleInvestigacao"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#analiseSanitariaHasAlvoInvestigacao"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#analiseSanitariaHasAreaAfetada"/>
+        <Class IRI="#AreaAfetada"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#areaDaEquipe"/>
+        <Class IRI="#EquipeCampo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#areaDoCiclo"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#categoriaEspecieHasEspecieAnimal"/>
+        <Class IRI="#EspecieAnimal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#cicloPertenceAResposta"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contidaEmArea"/>
+        <Class IRI="#AreaOperacional"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#equipeAlocadaEm"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#especieAnimalHasEstabelecimento"/>
+        <Class IRI="#Estabelecimento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#estabelecimentoHasEndereco"/>
+        <Class IRI="#Endereco"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#postoDaResposta"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#rastreamentoGpsHasVeiculo"/>
+        <Class IRI="#Veiculo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#submissaoBarreiraHasBarreiraSanitaria"/>
+        <Class IRI="#BarreiraSanitaria"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#zonaDoCiclo"/>
+        <Class IRI="#CicloVigilancia"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#PertenceA"/>
+            <ObjectProperty IRI="#zonaDoCiclo"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#areaDoCiclo"/>
+    </SubObjectPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#analiseAtiva"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#analisePublica"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#anoFabricacao"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ativoEstabelecimento"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ativoFrigorifico"/>
+        <Class IRI="#Frigorifico"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ativoPessoa"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#codigoCar"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#geometriaCar"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#bairro"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cep"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cicloFechado"/>
+        <Class IRI="#CicloVigilancia"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cidade"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#codigoEstabelecimento"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#convocadaAtiva"/>
+        <Class IRI="#PessoaConvocada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cor"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#corArea"/>
+        <Class IRI="#AreaOperacional"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#corEquipe"/>
+        <Class IRI="#TipoEquipe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cpf"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cpfCnpj"/>
+        <Class IRI="#PropriedadeTemporaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#criadaEm"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dadosSubmissao"/>
+        <Class IRI="#SubmissaoPropriedade"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dadosSubmissaoBarreira"/>
+        <Class IRI="#SubmissaoBarreira"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dataCadastro"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dataFimZona"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dataInicioZona"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dataMovimentacao"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#emQuarentena"/>
+        <Class IRI="#PessoaConvocada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#email"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#enderecoPosto"/>
+        <Class IRI="#PostoComando"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#equipeAtiva"/>
+        <Class IRI="#EquipeCampo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#especieExploracao"/>
+        <Class IRI="#GranjaAve"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#especieMovimentada"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#exibirCar"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#faseResposta"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#fimMovimentacao"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#fimRastreamento"/>
+        <Class IRI="#RastreamentoGps"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#finalidadeExploracao"/>
+        <Class IRI="#GranjaSuino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#finalidadeExploracaoTipo"/>
+        <Class IRI="#GranjaSuino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#finalidadeMovimentacao"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#finalidadeProducao"/>
+        <Class IRI="#GranjaAve"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#formaExploracao"/>
+        <Class IRI="#GranjaAve"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#geometriaAreaAfetada"/>
+        <Class IRI="#AreaAfetada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#geometriaZona"/>
+        <Class IRI="#ZonaControleInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#identificadorResposta"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#inicioMovimentacao"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#inicioRastreamento"/>
+        <Class IRI="#RastreamentoGps"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#integradora"/>
+        <Class IRI="#GranjaSuino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#keycloakSubjectId"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#marca"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#membroAtivo"/>
+        <Class IRI="#MembroEquipe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metadados"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#metadadosRastreamento"/>
+        <Class IRI="#RastreamentoGps"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#modelo"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#movimentacaoEntrada"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#movimentacaoSaida"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeAlvo"/>
+        <Class IRI="#AlvoInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeAnalise"/>
+        <Class IRI="#AnaliseSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeArea"/>
+        <Class IRI="#AreaOperacional"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeAreaAfetada"/>
+        <Class IRI="#AreaAfetada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeBarreira"/>
+        <Class IRI="#BarreiraSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeContato"/>
+        <Class IRI="#PropriedadeTemporaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeEquipe"/>
+        <Class IRI="#EquipeCampo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeEstabelecimento"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeFuncao"/>
+        <Class IRI="#Funcao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomePessoa"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomePosto"/>
+        <Class IRI="#PostoComando"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeTipoEquipe"/>
+        <Class IRI="#TipoEquipe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroCiclo"/>
+        <Class IRI="#CicloVigilancia"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroEndereco"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroGTA"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroInspecao"/>
+        <Class IRI="#Frigorifico"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#observacoesPosto"/>
+        <Class IRI="#PostoComando"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#papelBarreira"/>
+        <Class IRI="#BarreiraSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#permissaoGestao"/>
+        <Class IRI="#PessoaConvocada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#permissaoObservacao"/>
+        <Class IRI="#PessoaConvocada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#placa"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#pontosLimiteArea"/>
+        <Class IRI="#AreaOperacional"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#pontosLimiteZona"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#prazoResposta"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#producaoComercial"/>
+        <Class IRI="#GranjaAve"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#quantidadeAnimais"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#quarentenaAte"/>
+        <Class IRI="#PessoaConvocada"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#raio"/>
+        <Class IRI="#ZonaControleInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#registro"/>
+        <Class IRI="#GranjaSuino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#respostaAtiva"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#respostaConcluida"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#respostaPublica"/>
+        <Class IRI="#RespostaSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#rotuloRastreamento"/>
+        <Class IRI="#RastreamentoGps"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#rua"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#serie"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#setorEquipe"/>
+        <Class IRI="#TipoEquipe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sistemaInspecao"/>
+        <Class IRI="#Frigorifico"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#telefone"/>
+        <Class IRI="#PropriedadeTemporaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipoBarreira"/>
+        <Class IRI="#BarreiraSanitaria"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipoEstabelecimento"/>
+        <Class IRI="#Estabelecimento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipoVeiculo"/>
+        <Class IRI="#Veiculo"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tipoZona"/>
+        <Class IRI="#ZonaControleInvestigacao"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#uf"/>
+        <Class IRI="#Endereco"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ufOrigem"/>
+        <Class IRI="#MovimentacaoAnimal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#uuidSubmissao"/>
+        <Class IRI="#SubmissaoPropriedade"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#uuidSubmissaoBarreira"/>
+        <Class IRI="#SubmissaoBarreira"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#visitaConcluida"/>
+        <Class IRI="#PropriedadeEmArea"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#zonaFechada"/>
+        <Class IRI="#ZonaPorCiclo"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#analiseAtiva"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#analisePublica"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#anoFabricacao"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ativoEstabelecimento"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ativoFrigorifico"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ativoPessoa"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#codigoCar"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#geometriaCar"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#bairro"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cep"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cicloFechado"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cidade"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#codigoEstabelecimento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#convocadaAtiva"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#coordenadas"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cor"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#corArea"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#corEquipe"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cpf"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cpfCnpj"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#criadaEm"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dadosSubmissao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dadosSubmissaoBarreira"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dataCadastro"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dataFimZona"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dataInicioZona"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dataMovimentacao"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#emQuarentena"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#email"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#enderecoPosto"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#equipeAtiva"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#especieExploracao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#especieMovimentada"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#exibirCar"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#faseResposta"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#fimMovimentacao"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#fimRastreamento"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#finalidadeExploracao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#finalidadeExploracaoTipo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#finalidadeMovimentacao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#finalidadeProducao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#formaExploracao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#geometriaAreaAfetada"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#geometriaZona"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#identificadorResposta"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#inicioMovimentacao"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#inicioRastreamento"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#integradora"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#keycloakSubjectId"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#latitude"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#longitude"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#marca"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#membroAtivo"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metadados"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#metadadosRastreamento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#modelo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#movimentacaoEntrada"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#movimentacaoSaida"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeAlvo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeAnalise"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeArea"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeAreaAfetada"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeBarreira"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeContato"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeEquipe"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeEstabelecimento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeFuncao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomePessoa"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomePosto"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeTipoEquipe"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroCiclo"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroEndereco"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroGTA"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroInspecao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#observacoesPosto"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#papelBarreira"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#permissaoGestao"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#permissaoObservacao"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#placa"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#pontosLimiteArea"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#pontosLimiteZona"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#prazoResposta"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#producaoComercial"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#quantidadeAnimais"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#quarentenaAte"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#raio"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#registro"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#respostaAtiva"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#respostaConcluida"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#respostaPublica"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#rotuloRastreamento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#rua"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#serie"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#setorEquipe"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sistemaInspecao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#telefone"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipoBarreira"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipoEstabelecimento"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipoVeiculo"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipoZona"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#uf"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ufOrigem"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#uuidSubmissao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#uuidSubmissaoBarreira"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#visitaConcluida"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#zonaFechada"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <HasKey>
+        <Class IRI="#CicloVigilancia"/>
+        <ObjectProperty IRI="#cicloPertenceAResposta"/>
+        <DataProperty IRI="#numeroCiclo"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Estabelecimento"/>
+        <DataProperty IRI="#codigoEstabelecimento"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#MovimentacaoAnimal"/>
+        <DataProperty IRI="#numeroGTA"/>
+        <DataProperty IRI="#serie"/>
+        <DataProperty IRI="#ufOrigem"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Pessoa"/>
+        <DataProperty IRI="#cpf"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Pessoa"/>
+        <DataProperty IRI="#email"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Pessoa"/>
+        <DataProperty IRI="#keycloakSubjectId"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#PessoaConvocada"/>
+        <ObjectProperty IRI="#Convoca"/>
+        <DataProperty IRI="#keycloakSubjectId"/>
+    </HasKey>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Aloca</IRI>
+        <Literal xml:lang="pt">Aloca</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Aloca</IRI>
+        <Literal xml:lang="en">allocates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AlvoInvestigacao</IRI>
+        <Literal xml:lang="pt">Alvo de Investigacao</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AlvoInvestigacao</IRI>
+        <Literal xml:lang="en">Investigation Target</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnaliseSanitaria</IRI>
+        <Literal xml:lang="pt">Analise Sanitaria</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnaliseSanitaria</IRI>
+        <Literal xml:lang="en">Sanitary Analysis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaAfetada</IRI>
+        <Literal xml:lang="en">Affected Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaAfetada</IRI>
+        <Literal xml:lang="pt">Area Afetada</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaConcluida</IRI>
+        <Literal xml:lang="pt">Area Operacional Concluida</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaConcluida</IRI>
+        <Literal xml:lang="en">Completed Operational Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaOperacional</IRI>
+        <Literal xml:lang="pt">Area Operacional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AreaOperacional</IRI>
+        <Literal xml:lang="en">Operational Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AtuaEm</IRI>
+        <Literal xml:lang="pt">Atua em</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AtuaEm</IRI>
+        <Literal xml:lang="en">operates in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BarreiraSanitaria</IRI>
+        <Literal xml:lang="pt">Barreira Sanitaria</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BarreiraSanitaria</IRI>
+        <Literal xml:lang="en">Sanitary Barrier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BaseadaEm</IRI>
+        <Literal xml:lang="pt">Baseada em</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BaseadaEm</IRI>
+        <Literal xml:lang="en">based on</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaAves</IRI>
+        <Literal xml:lang="en">AVES</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaBovinos</IRI>
+        <Literal xml:lang="en">BOVINOS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaEspecie</IRI>
+        <Literal xml:lang="pt">Categoria de Especie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaEspecie</IRI>
+        <Literal xml:lang="en">Species Category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaOutros</IRI>
+        <Literal xml:lang="en">OUTROS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaOvinos</IRI>
+        <Literal xml:lang="en">OVINOS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CategoriaSuinos</IRI>
+        <Literal xml:lang="en">SUINOS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CicloFechado</IRI>
+        <Literal xml:lang="pt">Ciclo de Vigilancia Fechado</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CicloFechado</IRI>
+        <Literal xml:lang="en">Closed Surveillance Cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CicloVigilancia</IRI>
+        <Literal xml:lang="pt">Ciclo de Vigilancia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CicloVigilancia</IRI>
+        <Literal xml:lang="en">Surveillance Cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ClassificaSe</IRI>
+        <Literal xml:lang="pt">Classifica-se</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ClassificaSe</IRI>
+        <Literal xml:lang="en">classified as</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompostaPor</IRI>
+        <Literal xml:lang="pt">Composta por</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompostaPor</IRI>
+        <Literal xml:lang="en">composed of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contem</IRI>
+        <Literal xml:lang="pt">Contem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contem</IRI>
+        <Literal xml:lang="en">contains</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Convoca</IRI>
+        <Literal xml:lang="pt">Convoca</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Convoca</IRI>
+        <Literal xml:lang="en">summons for</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CriadaPor</IRI>
+        <Literal xml:lang="pt">Criada por</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CriadaPor</IRI>
+        <Literal xml:lang="en">created by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Desempenha</IRI>
+        <Literal xml:lang="pt">Desempenha</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Desempenha</IRI>
+        <Literal xml:lang="en">performs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Destino</IRI>
+        <Literal xml:lang="pt">Destino</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Destino</IRI>
+        <Literal xml:lang="en">destination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Endereco</IRI>
+        <Literal xml:lang="en">Address</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Endereco</IRI>
+        <Literal xml:lang="pt">Endereco</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EquipeCampo</IRI>
+        <Literal xml:lang="pt">Equipe de Campo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EquipeCampo</IRI>
+        <Literal xml:lang="en">Field Team</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EspecieAnimal</IRI>
+        <Literal xml:lang="en">Animal Species</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EspecieAnimal</IRI>
+        <Literal xml:lang="pt">Especie Animal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Estabelecimento</IRI>
+        <Literal xml:lang="pt">Estabelecimento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Estabelecimento</IRI>
+        <Literal xml:lang="en">Establishment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Frigorifico</IRI>
+        <Literal xml:lang="pt">Frigorifico</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Frigorifico</IRI>
+        <Literal xml:lang="en">Slaughterhouse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Funcao</IRI>
+        <Literal xml:lang="pt">Funcao</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Funcao</IRI>
+        <Literal xml:lang="en">Function</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GranjaAve</IRI>
+        <Literal xml:lang="pt">Granja de Aves</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GranjaAve</IRI>
+        <Literal xml:lang="en">Poultry Farm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GranjaSuino</IRI>
+        <Literal xml:lang="pt">Granja de Suinos</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GranjaSuino</IRI>
+        <Literal xml:lang="en">Swine Farm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MembroEquipe</IRI>
+        <Literal xml:lang="pt">Membro de Equipe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MembroEquipe</IRI>
+        <Literal xml:lang="en">Team Member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MovimentacaoAnimal</IRI>
+        <Literal xml:lang="en">Animal Movement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MovimentacaoAnimal</IRI>
+        <Literal xml:lang="pt">Movimentacao Animal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Opera</IRI>
+        <Literal xml:lang="pt">Opera</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Opera</IRI>
+        <Literal xml:lang="en">operates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Origem</IRI>
+        <Literal xml:lang="pt">Origem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Origem</IRI>
+        <Literal xml:lang="en">origin</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PertenceA</IRI>
+        <Literal xml:lang="pt">Pertence a</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PertenceA</IRI>
+        <Literal xml:lang="en">belongs to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pessoa</IRI>
+        <Literal xml:lang="en">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pessoa</IRI>
+        <Literal xml:lang="pt">Pessoa</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PessoaConvocada</IRI>
+        <Literal xml:lang="pt">Pessoa Convocada</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PessoaConvocada</IRI>
+        <Literal xml:lang="en">Summoned Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PessoaEmQuarentena</IRI>
+        <Literal xml:lang="en">Person in Quarantine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PessoaEmQuarentena</IRI>
+        <Literal xml:lang="pt">Pessoa em Quarentena</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Possui</IRI>
+        <Literal xml:lang="pt">Possui</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Possui</IRI>
+        <Literal xml:lang="en">has cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PostoComando</IRI>
+        <Literal xml:lang="en">Command Post</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PostoComando</IRI>
+        <Literal xml:lang="pt">Posto de Comando</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeContactante</IRI>
+        <Literal xml:lang="en">Contacting Property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeContactante</IRI>
+        <Literal xml:lang="pt">Propriedade Contactante</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PropriedadeEmArea</IRI>
+        <Literal xml:lang="en">AX-SEQ-04: the visit status may transition from completed back to pending (reopen operation); modelled as a state transition, not as an OWL restriction.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeEmArea</IRI>
+        <Literal xml:lang="en">Property in Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeEmArea</IRI>
+        <Literal xml:lang="pt">Propriedade em Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeTemporaria</IRI>
+        <Literal xml:lang="pt">Propriedade Temporaria</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeTemporaria</IRI>
+        <Literal xml:lang="en">Temporary Property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeVisitada</IRI>
+        <Literal xml:lang="pt">Propriedade em Area Visitada</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PropriedadeVisitada</IRI>
+        <Literal xml:lang="en">Visited Property in Area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RastreamentoGps</IRI>
+        <Literal xml:lang="en">GPS Tracking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RastreamentoGps</IRI>
+        <Literal xml:lang="pt">Rastreamento GPS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RealizadaPor</IRI>
+        <Literal xml:lang="pt">Realizada por</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RealizadaPor</IRI>
+        <Literal xml:lang="en">performed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RefereSeA</IRI>
+        <Literal xml:lang="pt">Refere-se a</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RefereSeA</IRI>
+        <Literal xml:lang="en">refers to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespostaSanitaria</IRI>
+        <Literal xml:lang="pt">Resposta Sanitaria</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespostaSanitaria</IRI>
+        <Literal xml:lang="en">Sanitary Response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubdivideSe</IRI>
+        <Literal xml:lang="pt">Subdivide-se</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubdivideSe</IRI>
+        <Literal xml:lang="en">subdivides into</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubmissaoBarreira</IRI>
+        <Literal xml:lang="en">Barrier Submission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubmissaoBarreira</IRI>
+        <Literal xml:lang="pt">Submissao de Barreira</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubmissaoPropriedade</IRI>
+        <Literal xml:lang="en">Property Submission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SubmissaoPropriedade</IRI>
+        <Literal xml:lang="pt">Submissao de Propriedade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tem</IRI>
+        <Literal xml:lang="pt">Tem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tem</IRI>
+        <Literal xml:lang="en">has command post</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TipoEquipe</IRI>
+        <Literal xml:lang="en">Team Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TipoEquipe</IRI>
+        <Literal xml:lang="pt">Tipo de Equipe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Utiliza</IRI>
+        <Literal xml:lang="pt">Utiliza</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Utiliza</IRI>
+        <Literal xml:lang="en">uses</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Veiculo</IRI>
+        <Literal xml:lang="en">Vehicle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Veiculo</IRI>
+        <Literal xml:lang="pt">Veiculo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VinculadaA</IRI>
+        <Literal xml:lang="pt">Vinculada a</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VinculadaA</IRI>
+        <Literal xml:lang="en">linked to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ZonaControleInvestigacao</IRI>
+        <Literal xml:lang="en">Investigation Control Zone</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ZonaControleInvestigacao</IRI>
+        <Literal xml:lang="pt">Zona de Controle da Investigacao</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ZonaPorCiclo</IRI>
+        <Literal xml:lang="pt">Zona por Ciclo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ZonaPorCiclo</IRI>
+        <Literal xml:lang="en">Zone per Cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#alvoDeAnalise</IRI>
+        <Literal xml:lang="en">target of analysis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#alvoInvestigacaoHasZonaControleInvestigacao</IRI>
+        <Literal xml:lang="en">has control zone</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#analiseAtiva</IRI>
+        <Literal xml:lang="en">active analysis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#analisePublica</IRI>
+        <Literal xml:lang="en">public analysis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#analiseSanitariaHasAlvoInvestigacao</IRI>
+        <Literal xml:lang="en">has investigation target</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#analiseSanitariaHasAreaAfetada</IRI>
+        <Literal xml:lang="en">has affected area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#anoFabricacao</IRI>
+        <Literal xml:lang="en">manufacturing year</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#areaDaEquipe</IRI>
+        <Literal xml:lang="en">belongs to team</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#areaDoCiclo</IRI>
+        <Literal xml:lang="en">cycle of area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ativoEstabelecimento</IRI>
+        <Literal xml:lang="en">active establishment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ativoFrigorifico</IRI>
+        <Literal xml:lang="en">active slaughterhouse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ativoPessoa</IRI>
+        <Literal xml:lang="en">active person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#codigoCar</IRI>
+        <Literal xml:lang="en">CAR code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#geometriaCar</IRI>
+        <Literal xml:lang="en">CAR geometry (WKT)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#bairro</IRI>
+        <Literal xml:lang="pt">Bairro</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#bairro</IRI>
+        <Literal xml:lang="en">district</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#categoriaEspecieHasEspecieAnimal</IRI>
+        <Literal xml:lang="en">categorizes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cep</IRI>
+        <Literal xml:lang="pt">CEP</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cep</IRI>
+        <Literal xml:lang="en">postal code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cicloFechado</IRI>
+        <Literal xml:lang="en">closed cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cicloPertenceAResposta</IRI>
+        <Literal xml:lang="en">belongs to response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cidade</IRI>
+        <Literal xml:lang="pt">Cidade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cidade</IRI>
+        <Literal xml:lang="en">city</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#codigoEstabelecimento</IRI>
+        <Literal xml:lang="pt">Codigo SDA</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#codigoEstabelecimento</IRI>
+        <Literal xml:lang="en">SDA code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#contidaEmArea</IRI>
+        <Literal xml:lang="en">contained in area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#convocadaAtiva</IRI>
+        <Literal xml:lang="en">active summons</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#coordenadas</IRI>
+        <Literal xml:lang="en">AX-GEO-02: coordinates stored as WKT strings (PostGIS GEOGRAPHY at implementation level; consumed as WKT literals by GeoSPARQL queries).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#coordenadas</IRI>
+        <Literal xml:lang="pt">Coordenadas (WKT)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#coordenadas</IRI>
+        <Literal xml:lang="en">coordinates (WKT)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cor</IRI>
+        <Literal xml:lang="en">colour</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#corArea</IRI>
+        <Literal xml:lang="en">area colour</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#corEquipe</IRI>
+        <Literal xml:lang="en">team colour</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cpf</IRI>
+        <Literal xml:lang="en">CPF</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#cpfCnpj</IRI>
+        <Literal xml:lang="en">CPF/CNPJ</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#criadaEm</IRI>
+        <Literal xml:lang="en">created at</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dadosSubmissao</IRI>
+        <Literal xml:lang="en">submission data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dadosSubmissaoBarreira</IRI>
+        <Literal xml:lang="en">barrier submission data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dataCadastro</IRI>
+        <Literal xml:lang="en">registration date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dataFimZona</IRI>
+        <Literal xml:lang="en">zone end date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dataInicioZona</IRI>
+        <Literal xml:lang="en">zone start date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#dataMovimentacao</IRI>
+        <Literal xml:lang="en">movement date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#emQuarentena</IRI>
+        <Literal xml:lang="en">in quarantine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#email</IRI>
+        <Literal xml:lang="en">email</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#enderecoPosto</IRI>
+        <Literal xml:lang="en">command post address</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#equipeAlocadaEm</IRI>
+        <Literal xml:lang="en">allocated to cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#equipeAtiva</IRI>
+        <Literal xml:lang="en">active team</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#especieAnimalHasEstabelecimento</IRI>
+        <Literal xml:lang="en">explored in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#especieExploracao</IRI>
+        <Literal xml:lang="en">explored species</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#especieMovimentada</IRI>
+        <Literal xml:lang="en">moved species</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#estabelecimentoHasEndereco</IRI>
+        <Literal xml:lang="en">has address</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#exibirCar</IRI>
+        <Literal xml:lang="en">show CAR</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#faseResposta</IRI>
+        <Literal xml:lang="en">response phase</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#fimMovimentacao</IRI>
+        <Literal xml:lang="en">movement end date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#fimRastreamento</IRI>
+        <Literal xml:lang="en">tracking end</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#finalidadeExploracao</IRI>
+        <Literal xml:lang="en">exploration purpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#finalidadeExploracaoTipo</IRI>
+        <Literal xml:lang="en">exploration purpose type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#finalidadeMovimentacao</IRI>
+        <Literal xml:lang="en">movement purpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#finalidadeProducao</IRI>
+        <Literal xml:lang="en">production purpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#formaExploracao</IRI>
+        <Literal xml:lang="en">exploration form</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#geometriaAreaAfetada</IRI>
+        <Literal xml:lang="en">affected area geometry (WKT)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#geometriaZona</IRI>
+        <Literal xml:lang="en">zone geometry (WKT)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#identificadorResposta</IRI>
+        <Literal xml:lang="en">response identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#inicioMovimentacao</IRI>
+        <Literal xml:lang="en">movement start date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#inicioRastreamento</IRI>
+        <Literal xml:lang="en">tracking start</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#integradora</IRI>
+        <Literal xml:lang="en">integrator company</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#keycloakSubjectId</IRI>
+        <Literal xml:lang="en">Keycloak subject id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#latitude</IRI>
+        <Literal xml:lang="en">latitude</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#longitude</IRI>
+        <Literal xml:lang="en">longitude</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#marca</IRI>
+        <Literal xml:lang="en">brand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#membroAtivo</IRI>
+        <Literal xml:lang="en">active member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#metadados</IRI>
+        <Literal xml:lang="en">metadata filters</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#metadadosRastreamento</IRI>
+        <Literal xml:lang="en">tracking metadata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#modelo</IRI>
+        <Literal xml:lang="en">model</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#movimentacaoEntrada</IRI>
+        <Literal xml:lang="en">incoming movements</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#movimentacaoSaida</IRI>
+        <Literal xml:lang="en">outgoing movements</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeAlvo</IRI>
+        <Literal xml:lang="en">target name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeAnalise</IRI>
+        <Literal xml:lang="en">analysis name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeArea</IRI>
+        <Literal xml:lang="en">area name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeAreaAfetada</IRI>
+        <Literal xml:lang="en">affected area name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeBarreira</IRI>
+        <Literal xml:lang="en">barrier name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeContato</IRI>
+        <Literal xml:lang="en">contact name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeEquipe</IRI>
+        <Literal xml:lang="en">team name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeEstabelecimento</IRI>
+        <Literal xml:lang="en">establishment name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeFuncao</IRI>
+        <Literal xml:lang="en">function name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomePessoa</IRI>
+        <Literal xml:lang="en">person name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomePosto</IRI>
+        <Literal xml:lang="en">command post name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeTipoEquipe</IRI>
+        <Literal xml:lang="en">team type name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroCiclo</IRI>
+        <Literal xml:lang="en">cycle number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroEndereco</IRI>
+        <Literal xml:lang="en">street number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroGTA</IRI>
+        <Literal xml:lang="en">GTA number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroInspecao</IRI>
+        <Literal xml:lang="en">inspection number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#observacoesPosto</IRI>
+        <Literal xml:lang="en">command post notes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#papelBarreira</IRI>
+        <Literal xml:lang="en">Values: SANITARY, DIVERSION.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#papelBarreira</IRI>
+        <Literal xml:lang="en">barrier role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#permissaoGestao</IRI>
+        <Literal xml:lang="en">management permission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#permissaoObservacao</IRI>
+        <Literal xml:lang="en">observer permission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#placa</IRI>
+        <Literal xml:lang="en">license plate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#pontosLimiteArea</IRI>
+        <Literal xml:lang="en">area boundary points</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#pontosLimiteZona</IRI>
+        <Literal xml:lang="en">zone boundary points</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#postoDaResposta</IRI>
+        <Literal xml:lang="en">command post of response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#prazoResposta</IRI>
+        <Literal xml:lang="en">response due date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#producaoComercial</IRI>
+        <Literal xml:lang="en">commercial production</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#quantidadeAnimais</IRI>
+        <Literal xml:lang="en">number of animals</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#quarentenaAte</IRI>
+        <Literal xml:lang="en">quarantine until</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#raio</IRI>
+        <Literal xml:lang="en">zone radius</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rastreamentoGpsHasVeiculo</IRI>
+        <Literal xml:lang="en">tracks vehicle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#registro</IRI>
+        <Literal xml:lang="en">registration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#respostaAtiva</IRI>
+        <Literal xml:lang="en">active response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#respostaConcluida</IRI>
+        <Literal xml:lang="en">completed response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#respostaPublica</IRI>
+        <Literal xml:lang="en">public response</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rotuloRastreamento</IRI>
+        <Literal xml:lang="en">tracking label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rua</IRI>
+        <Literal xml:lang="pt">Rua</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rua</IRI>
+        <Literal xml:lang="en">street</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#serie</IRI>
+        <Literal xml:lang="en">GTA series</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#setorEquipe</IRI>
+        <Literal xml:lang="en">team sector</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#sistemaInspecao</IRI>
+        <Literal xml:lang="en">inspection system (SIF/SIE/SIM)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#submissaoBarreiraHasBarreiraSanitaria</IRI>
+        <Literal xml:lang="en">linked to barrier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#telefone</IRI>
+        <Literal xml:lang="en">phone number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tipoBarreira</IRI>
+        <Literal xml:lang="en">Values: FIXED, MOBILE.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tipoBarreira</IRI>
+        <Literal xml:lang="en">barrier type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tipoEstabelecimento</IRI>
+        <Literal xml:lang="en">establishment type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tipoVeiculo</IRI>
+        <Literal xml:lang="en">vehicle type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tipoZona</IRI>
+        <Literal xml:lang="en">Values: INFECTED (perifocal), BUFFER (surveillance), SURVEILLANCE (protection), INVESTIGATION.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tipoZona</IRI>
+        <Literal xml:lang="en">zone type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#uf</IRI>
+        <Literal xml:lang="pt">UF</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#uf</IRI>
+        <Literal xml:lang="en">state</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ufOrigem</IRI>
+        <Literal xml:lang="en">origin state</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#uuidSubmissao</IRI>
+        <Literal xml:lang="en">submission uuid</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#uuidSubmissaoBarreira</IRI>
+        <Literal xml:lang="en">barrier submission uuid</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#visitaConcluida</IRI>
+        <Literal xml:lang="en">visit completed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#zonaDoCiclo</IRI>
+        <Literal xml:lang="en">zone of cycle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#zonaFechada</IRI>
+        <Literal xml:lang="en">closed zone</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

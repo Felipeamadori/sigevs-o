@@ -1,0 +1,215 @@
+---
+title: SIGEVS-O — Complete Ontological Model
+---
+classDiagram
+    %% ═══════════════════════════════════════════
+    %% CORE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class Establishment {
+        <<Kind>>
+    }
+    class Address {
+        <<Kind>>
+    }
+    class Person {
+        <<Kind>>
+    }
+    class AnimalSpecies {
+        <<Kind>>
+    }
+    class Slaughterhouse {
+        <<Subkind>>
+    }
+    class SwineFarm {
+        <<Subkind>>
+    }
+    class PoultryFarm {
+        <<Subkind>>
+    }
+
+    Establishment --> Address : hasAddress
+    Establishment --> AnimalSpecies : raises
+    Establishment <|-- Slaughterhouse
+    Establishment <|-- SwineFarm
+    Establishment <|-- PoultryFarm
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class SanitaryAnalysis {
+        <<Event>>
+    }
+    class InvestigationTarget {
+        <<Role>>
+    }
+    class AffectedArea {
+        <<Kind>>
+    }
+    class ControlZone {
+        <<Relator>>
+    }
+    class AnimalMovement {
+        <<Event>>
+    }
+    class ContactingProperty {
+        <<Role>>
+    }
+    class SpeciesCategory {
+        <<Enumeration>>
+    }
+
+    SanitaryAnalysis --> Person : createdBy
+    SanitaryAnalysis --> InvestigationTarget : delimits
+    SanitaryAnalysis --> AffectedArea : involves
+    SanitaryAnalysis --> SpeciesCategory : involves
+    InvestigationTarget --> ControlZone : hasZone
+    AffectedArea --> ControlZone : delimitedBy
+    AnimalMovement --> Establishment : origin
+    AnimalMovement --> Establishment : destination
+    InvestigationTarget --> AnimalMovement : tracks
+    InvestigationTarget --> ContactingProperty : identifies
+    AnimalSpecies --> SpeciesCategory : classifiedBy
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class SanitaryResponse {
+        <<Event>>
+    }
+    class SurveillanceCycle {
+        <<Event>>
+    }
+    class ZonePerCycle {
+        <<Relator>>
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class TeamType {
+        <<Kind>>
+    }
+    class TeamMember {
+        <<Role>>
+    }
+    class TeamFunction {
+        <<Kind>>
+    }
+    class OperationalArea {
+        <<Kind>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+    class Vehicle {
+        <<Kind>>
+    }
+    class CommandPost {
+        <<Kind>>
+    }
+    class SummonedPerson {
+        <<Role>>
+    }
+    class GPSTracking {
+        <<Event>>
+    }
+
+    SanitaryAnalysis --> SanitaryResponse : basedOn
+    SanitaryResponse --> SurveillanceCycle : contains
+    SanitaryResponse --> CommandPost : coordinatedFrom
+    SanitaryResponse --> SanitaryBarrier : deploys
+    SanitaryResponse --> SummonedPerson : mobilises
+    SurveillanceCycle --> ZonePerCycle : hasZone
+    SurveillanceCycle --> FieldTeam : allocates
+    FieldTeam --> TeamMember : composedOf
+    FieldTeam --> TeamType : classifiedBy
+    FieldTeam --> TeamFunction : performs
+    FieldTeam --> OperationalArea : assignedTo
+    FieldTeam --> SanitaryBarrier : operates
+    FieldTeam --> Vehicle : uses
+    FieldTeam --> GPSTracking : trackedBy
+    OperationalArea --> ZonePerCycle : belongsTo
+    OperationalArea --> PropertyInArea : contains
+    PropertyInArea --> Establishment : refersTo
+    GPSTracking --> Vehicle : tracks
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class PropertySubmission {
+        <<Event>>
+    }
+    class BarrierSubmission {
+        <<Event>>
+    }
+    class TemporaryProperty {
+        <<Role>>
+    }
+    class VisitConclusion {
+        <<Phase>>
+    }
+
+    PropertyInArea --> PropertySubmission : generates
+    PropertySubmission --> FieldTeam : performedBy
+    PropertySubmission --> VisitConclusion : resultsIn
+    PropertySubmission --> TemporaryProperty : mayIdentify
+    SanitaryBarrier --> BarrierSubmission : generates
+
+    %% ═══════════════════════════════════════════
+    %% CROSS-DOMAIN (Role generalises Kind)
+    %% ═══════════════════════════════════════════
+    InvestigationTarget ..> Establishment : generalizes
+    ContactingProperty ..> Establishment : generalizes
+    TeamMember ..> Person : generalizes
+    SummonedPerson ..> Person : generalizes
+    TemporaryProperty ..> Establishment : generalizes
+
+    %% ═══════════════════════════════════════════
+    %% CORE STYLES (green)
+    %% ═══════════════════════════════════════════
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Address fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style AnimalSpecies fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Slaughterhouse fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SwineFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PoultryFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION STYLES (orange)
+    %% ═══════════════════════════════════════════
+    style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style InvestigationTarget fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AffectedArea fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ControlZone fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AnimalMovement fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ContactingProperty fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style SpeciesCategory fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE STYLES (blue)
+    %% ═══════════════════════════════════════════
+    style SanitaryResponse fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SurveillanceCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style ZonePerCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamType fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamMember fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamFunction fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style OperationalArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Vehicle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style CommandPost fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SummonedPerson fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style GPSTracking fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS STYLES (pink)
+    %% ═══════════════════════════════════════════
+    style PropertySubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style BarrierSubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style TemporaryProperty fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style VisitConclusion fill:#fce4ec,stroke:#c62828,stroke-width:2px

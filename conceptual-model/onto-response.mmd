@@ -1,0 +1,85 @@
+---
+title: SIGEVS-O Ontology — Response Subdomain
+---
+classDiagram
+    class SanitaryResponse {
+        <<Event>>
+    }
+    class SanitaryAnalysis {
+        <<Event>>
+    }
+    class SurveillanceCycle {
+        <<Event>>
+    }
+    class ZonePerCycle {
+        <<Relator>>
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class TeamType {
+        <<Kind>>
+    }
+    class TeamMember {
+        <<Role>>
+    }
+    class TeamFunction {
+        <<Kind>>
+    }
+    class OperationalArea {
+        <<Kind>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+    class Vehicle {
+        <<Kind>>
+    }
+    class CommandPost {
+        <<Kind>>
+    }
+    class SummonedPerson {
+        <<Role>>
+    }
+    class GPSTracking {
+        <<Event>>
+    }
+
+    SanitaryResponse --> SanitaryAnalysis : basedOn
+    SanitaryResponse --> SurveillanceCycle : contains
+    SanitaryResponse --> CommandPost : coordinatedFrom
+    SanitaryResponse --> SanitaryBarrier : deploys
+    SanitaryResponse --> SummonedPerson : mobilises
+    SurveillanceCycle --> ZonePerCycle : hasZone
+    SurveillanceCycle --> FieldTeam : allocates
+    FieldTeam --> TeamMember : composedOf
+    FieldTeam --> TeamType : classifiedBy
+    FieldTeam --> TeamFunction : performs
+    FieldTeam --> OperationalArea : assignedTo
+    FieldTeam --> SanitaryBarrier : operates
+    FieldTeam --> Vehicle : uses
+    FieldTeam --> GPSTracking : trackedBy
+    OperationalArea --> ZonePerCycle : belongsTo
+    OperationalArea --> PropertyInArea : contains
+    PropertyInArea --> Establishment : refersTo
+    GPSTracking --> Vehicle : tracks
+
+    style SanitaryResponse fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SurveillanceCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style ZonePerCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamType fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamMember fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamFunction fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style OperationalArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Vehicle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style CommandPost fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SummonedPerson fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style GPSTracking fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px

@@ -1,0 +1,8 @@
+PREFIX sigevs: <https://sigevs.ontologies#>
+
+SELECT ?propriedadeTemporaria ?contato WHERE {
+  ?propriedadeTemporaria a sigevs:PropriedadeTemporaria ;
+                         sigevs:nomeContato ?contato ;
+                         sigevs:coordenadas ?coord .
+}
+ORDER BY ?contato
