@@ -39,5 +39,5 @@ This work is licensed under [CC-BY-4.0](LICENSE).
 ## Links
 
 <!-- - **Paper:** [Computers and Electronics in Agriculture](https://doi.org/TODO) -->
-- **SIGEVS System:** [https://sigevs.pdsa.rs.gov.br](https://sigevs.pdsa.rs.gov.br)
-- **PDSA-RS Platform:** [https://pdsa.rs.gov.br](https://pdsa.rs.gov.br)
+- **SIGEVS System:** [https://sigevs.pdsa-rs.com.br/](https://sigevs.pdsa-rs.com.br/)
+- **PDSA-RS Platform:** [https://pdsa-rs.com.br/](https://pdsa-rs.com.br/)
