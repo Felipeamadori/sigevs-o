@@ -31,6 +31,7 @@ classDiagram
     }
     class PropertyInArea {
         <<Relator>>
+        Boolean visitaConcluida
     }
     class SanitaryBarrier {
         <<Kind>>
@@ -47,25 +48,35 @@ classDiagram
     class GPSTracking {
         <<Event>>
     }
+    class Person {
+        <<Kind>>
+    }
+    class Establishment {
+        <<Kind>>
+    }
+    class ControlZone {
+        <<Relator>>
+    }
 
     SanitaryResponse --> SanitaryAnalysis : basedOn
     SanitaryResponse --> SurveillanceCycle : contains
     SanitaryResponse --> CommandPost : coordinatedFrom
-    SanitaryResponse --> SanitaryBarrier : deploys
-    SanitaryResponse --> SummonedPerson : mobilises
+    SummonedPerson --> SanitaryResponse : summonedFor
     SurveillanceCycle --> ZonePerCycle : hasZone
     SurveillanceCycle --> FieldTeam : allocates
     FieldTeam --> TeamMember : composedOf
     FieldTeam --> TeamType : classifiedBy
-    FieldTeam --> TeamFunction : performs
     FieldTeam --> OperationalArea : assignedTo
     FieldTeam --> SanitaryBarrier : operates
     FieldTeam --> Vehicle : uses
-    FieldTeam --> GPSTracking : trackedBy
+    TeamMember --> TeamFunction : performs
     OperationalArea --> ZonePerCycle : belongsTo
     OperationalArea --> PropertyInArea : contains
     PropertyInArea --> Establishment : refersTo
     GPSTracking --> Vehicle : tracks
+    ControlZone --> OperationalArea : delimits
+    Person <|-- TeamMember
+    Person <|-- SummonedPerson
 
     style SanitaryResponse fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style SurveillanceCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
@@ -81,5 +92,7 @@ classDiagram
     style CommandPost fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style SummonedPerson fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style GPSTracking fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ControlZone fill:#fff3e0,stroke:#ef6c00,stroke-width:2px

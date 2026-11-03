@@ -8,9 +8,6 @@ classDiagram
     class Address {
         <<Kind>>
     }
-    class Person {
-        <<Kind>>
-    }
     class AnimalSpecies {
         <<Kind>>
     }
@@ -23,12 +20,17 @@ classDiagram
     class PoultryFarm {
         <<Subkind>>
     }
+    class Person {
+        <<Kind>>
+    }
 
     Establishment --> Address : hasAddress
     Establishment --> AnimalSpecies : raises
     Establishment <|-- Slaughterhouse
     Establishment <|-- SwineFarm
     Establishment <|-- PoultryFarm
+
+    note for Person "See Investigation and Response"
 
     style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style Address fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px

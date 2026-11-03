@@ -11,9 +11,6 @@ classDiagram
     class Address {
         <<Kind>>
     }
-    class Person {
-        <<Kind>>
-    }
     class AnimalSpecies {
         <<Kind>>
     }
@@ -25,6 +22,9 @@ classDiagram
     }
     class PoultryFarm {
         <<Subkind>>
+    }
+    class Person {
+        <<Kind>>
     }
 
     Establishment --> Address : hasAddress
@@ -59,16 +59,14 @@ classDiagram
     }
 
     SanitaryAnalysis --> Person : createdBy
-    SanitaryAnalysis --> InvestigationTarget : delimits
-    SanitaryAnalysis --> AffectedArea : involves
-    SanitaryAnalysis --> SpeciesCategory : involves
+    SanitaryAnalysis --> InvestigationTarget : hasTarget
+    SanitaryAnalysis --> AffectedArea : covers
     InvestigationTarget --> ControlZone : hasZone
-    AffectedArea --> ControlZone : delimitedBy
     AnimalMovement --> Establishment : origin
     AnimalMovement --> Establishment : destination
-    InvestigationTarget --> AnimalMovement : tracks
-    InvestigationTarget --> ContactingProperty : identifies
     AnimalSpecies --> SpeciesCategory : classifiedBy
+    Establishment <|-- InvestigationTarget
+    Establishment <|-- ContactingProperty
 
     %% ═══════════════════════════════════════════
     %% RESPONSE SUBDOMAIN
@@ -99,6 +97,7 @@ classDiagram
     }
     class PropertyInArea {
         <<Relator>>
+        Boolean visitaConcluida
     }
     class SanitaryBarrier {
         <<Kind>>
@@ -116,24 +115,25 @@ classDiagram
         <<Event>>
     }
 
-    SanitaryAnalysis --> SanitaryResponse : basedOn
+    SanitaryResponse --> SanitaryAnalysis : basedOn
     SanitaryResponse --> SurveillanceCycle : contains
     SanitaryResponse --> CommandPost : coordinatedFrom
-    SanitaryResponse --> SanitaryBarrier : deploys
-    SanitaryResponse --> SummonedPerson : mobilises
+    SummonedPerson --> SanitaryResponse : summonedFor
     SurveillanceCycle --> ZonePerCycle : hasZone
     SurveillanceCycle --> FieldTeam : allocates
     FieldTeam --> TeamMember : composedOf
     FieldTeam --> TeamType : classifiedBy
-    FieldTeam --> TeamFunction : performs
     FieldTeam --> OperationalArea : assignedTo
     FieldTeam --> SanitaryBarrier : operates
     FieldTeam --> Vehicle : uses
-    FieldTeam --> GPSTracking : trackedBy
+    TeamMember --> TeamFunction : performs
     OperationalArea --> ZonePerCycle : belongsTo
     OperationalArea --> PropertyInArea : contains
     PropertyInArea --> Establishment : refersTo
     GPSTracking --> Vehicle : tracks
+    ControlZone --> OperationalArea : delimits
+    Person <|-- TeamMember
+    Person <|-- SummonedPerson
 
     %% ═══════════════════════════════════════════
     %% FIELD ACTIONS SUBDOMAIN
@@ -147,24 +147,11 @@ classDiagram
     class TemporaryProperty {
         <<Role>>
     }
-    class VisitConclusion {
-        <<Phase>>
-    }
 
-    PropertyInArea --> PropertySubmission : generates
+    PropertySubmission --> PropertyInArea : linkedTo
     PropertySubmission --> FieldTeam : performedBy
-    PropertySubmission --> VisitConclusion : resultsIn
-    PropertySubmission --> TemporaryProperty : mayIdentify
-    SanitaryBarrier --> BarrierSubmission : generates
-
-    %% ═══════════════════════════════════════════
-    %% CROSS-DOMAIN (Role generalises Kind)
-    %% ═══════════════════════════════════════════
-    InvestigationTarget ..> Establishment : generalizes
-    ContactingProperty ..> Establishment : generalizes
-    TeamMember ..> Person : generalizes
-    SummonedPerson ..> Person : generalizes
-    TemporaryProperty ..> Establishment : generalizes
+    BarrierSubmission --> SanitaryBarrier : linkedTo
+    Establishment <|-- TemporaryProperty
 
     %% ═══════════════════════════════════════════
     %% CORE STYLES (green)
@@ -212,4 +199,3 @@ classDiagram
     style PropertySubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
     style BarrierSubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
     style TemporaryProperty fill:#fce4ec,stroke:#c62828,stroke-width:2px
-    style VisitConclusion fill:#fce4ec,stroke:#c62828,stroke-width:2px

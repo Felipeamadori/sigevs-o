@@ -45,44 +45,51 @@
 - PessoaConvocada → Pessoa (restrictedTo = kind)
 - PropriedadeTemporaria → Estabelecimento (restrictedTo = kind)
 
-# Relacionamentos (31)
+# Relacionamentos (29)
 
 | # | Source | Target | Estereótipo | Source Card | Target Card | Nome |
 |---|--------|--------|------------|-------------|-------------|------|
 | R01 | Estabelecimento | Endereco | — | 1..* | 1 | |
+| R02 | Estabelecimento | EspecieAnimal | — | * | * | |
 | R03 | AnaliseSanitaria | Pessoa | — | * | 1 | Criada por |
 | R04 | AnaliseSanitaria | AlvoInvestigacao | — | 1 | * | |
 | R05 | AnaliseSanitaria | AreaAfetada | — | * | * | |
-| — | ~~R06~~ | ~~AlvoInvestigacao → Estabelecimento~~ | ~~«material»~~ | ~~0..*~~ | ~~1~~ | ~~substituído por generalização~~ |
 | R06 | AlvoInvestigacao | ZonaControleInvestigacao | «mediation» | 1 | 1 | |
 | R07 | MovimentacaoAnimal | Estabelecimento | — | * | 1 | Origem |
 | R08 | MovimentacaoAnimal | Estabelecimento | — | * | 1 | Destino |
-| — | ~~R09~~ | ~~PropriedadeContactante → Estabelecimento~~ | ~~«material»~~ | ~~0..*~~ | ~~1~~ | ~~substituído por generalização~~ |
-| R09 | RespostaSanitaria | AnaliseSanitaria | — | * | 1 | Baseada em |
-| R10 | RespostaSanitaria | CicloVigilancia | — | 1 | * | Possui |
-| R11 | RespostaSanitaria | PostoComando | — | 0..1 | 1 | Tem |
-| R12 | RespostaSanitaria | PessoaConvocada | — | 1 | * | Convoca |
-| R13 | CicloVigilancia | ZonaPorCiclo | «mediation» | 1 | * | Subdivide-se |
-| R14 | CicloVigilancia | EquipeCampo | — | 1 | * | Aloca |
-| R15 | EquipeCampo | TipoEquipe | — | * | 1 | Classifica-se |
+| R09 | EspecieAnimal | CategoriaEspecie | — | * | 1 | |
+| R10 | RespostaSanitaria | AnaliseSanitaria | — | * | 1 | Baseada em |
+| R11 | RespostaSanitaria | CicloVigilancia | — | 1 | * | Possui |
+| R12 | RespostaSanitaria | PostoComando | — | 0..1 | 1 | Tem |
+| R13 | PessoaConvocada | RespostaSanitaria | — | * | 1 | Convoca |
+| R14 | CicloVigilancia | ZonaPorCiclo | «mediation» | 1 | * | Subdivide-se |
+| R15 | CicloVigilancia | EquipeCampo | — | 1 | * | Aloca |
 | R16 | EquipeCampo | MembroEquipe | «memberOf» | 1 | * | Composta por |
-| R17 | EquipeCampo | AreaOperacional | — | 1 | * | Atua em |
-| R18 | EquipeCampo | Veiculo | — | 1 | * | Utiliza |
+| R17 | EquipeCampo | TipoEquipe | — | * | 1 | Classifica-se |
+| R18 | EquipeCampo | AreaOperacional | — | 1 | * | Atua em |
 | R19 | EquipeCampo | BarreiraSanitaria | — | 1 | * | Opera |
-| — | ~~R20~~ | ~~MembroEquipe → Pessoa~~ | ~~«material»~~ | ~~*~~ | ~~1~~ | ~~substituído por generalização~~ |
-| R20 | MembroEquipe | Funcao | — | * | 1 | Desempenha |
-| R21 | AreaOperacional | ZonaPorCiclo | «mediation» | * | 1 | Pertence a |
-| R22 | AreaOperacional | PropriedadeEmArea | «mediation» | 1 | * | Contém |
-| R23 | PropriedadeEmArea | Estabelecimento | «mediation» | * | 1 | Refere-se a |
-| — | ~~R24~~ | ~~PropriedadeEmArea → AreaOperacional~~ | ~~—~~ | ~~*~~ | ~~1~~ | ~~Está em (duplicata de R22)~~ |
-| — | ~~R25~~ | ~~PessoaConvocada → Pessoa~~ | ~~«material»~~ | ~~*~~ | ~~1~~ | ~~substituído por generalização~~ |
-| R24 | PessoaConvocada | Funcao | — | * | 1 | Desempenha |
-| R25 | SubmissaoPropriedade | PropriedadeEmArea | — | * | 1 | Vinculada a |
-| R26 | SubmissaoPropriedade | EquipeCampo | — | * | 1 | Realizada por |
-| R27 | SubmissaoBarreira | BarreiraSanitaria | — | * | 1 | Vinculada a |
-| — | ~~R28~~ | ~~PropriedadeTemporaria → Estabelecimento~~ | ~~«material»~~ | ~~0..1~~ | ~~1~~ | ~~substituído por generalização~~ |
-| R28 | PessoaConvocada | MembroEquipe | — | 0..1 | 1 | Alocado como |
-| R29 | Estabelecimento | EspecieAnimal | — | * | * | |
-| R30 | EspecieAnimal | CategoriaEspecie | — | * | 1 | |
-| R31 | RastreamentoGPS | Veiculo | — | * | 1 | |
-| R32 | ZonaControleInvestigacao | AreaOperacional | «mediation» | 1 | * | Delimita |
+| R20 | EquipeCampo | Veiculo | — | 1 | * | Utiliza |
+| R21 | MembroEquipe | Funcao | — | * | 1 | Desempenha |
+| R22 | AreaOperacional | ZonaPorCiclo | «mediation» | * | 1 | Pertence a |
+| R23 | AreaOperacional | PropriedadeEmArea | «mediation» | 1 | * | Contém |
+| R24 | PropriedadeEmArea | Estabelecimento | «mediation» | * | 1 | Refere-se a |
+| R25 | RastreamentoGPS | Veiculo | — | * | 1 | |
+| R26 | ZonaControleInvestigacao | AreaOperacional | «mediation» | 1 | * | Delimita |
+| R27 | SubmissaoPropriedade | PropriedadeEmArea | — | * | 1 | Vinculada a |
+| R28 | SubmissaoPropriedade | EquipeCampo | — | * | 1 | Realizada por |
+| R29 | SubmissaoBarreira | BarreiraSanitaria | — | * | 1 | Vinculada a |
+
+# Relações descontinuadas
+
+As relações abaixo foram removidas do modelo final:
+
+- `AlvoInvestigacao → Estabelecimento` («material»): substituída pela generalização `AlvoInvestigacao → Estabelecimento`.
+- `PropriedadeContactante → Estabelecimento` («material»): substituída pela generalização `PropriedadeContactante → Estabelecimento`.
+- `MembroEquipe → Pessoa` («material»): substituída pela generalização `MembroEquipe → Pessoa`.
+- `PessoaConvocada → Pessoa` («material»): substituída pela generalização `PessoaConvocada → Pessoa`.
+- `PropriedadeTemporaria → Estabelecimento` («material»): substituída pela generalização `PropriedadeTemporaria → Estabelecimento`.
+- `PropriedadeEmArea → AreaOperacional`: relação inversa redundante de R23 (`AreaOperacional → PropriedadeEmArea`).
+- `PessoaConvocada → Funcao`: removida; a função é desempenhada por `MembroEquipe` (R21).
+- `PessoaConvocada → MembroEquipe`: removida; não integra o modelo final.
+
+A relação `PessoaConvocada → RespostaSanitaria` (R13) segue a direção do modelo final; a versão anterior (`RespostaSanitaria → PessoaConvocada`) foi descontinuada.

@@ -6,11 +6,11 @@ OntoUML conceptual model of SIGEVS-O, expressed as Mermaid class diagrams.
 
 | File | Description |
 |------|-------------|
-| `sigevs-o-complete.mmd` | Complete model (31 classes, all subdomains) |
-| `sigevs-o-core.mmd` | Core subdomain |
-| `sigevs-o-investigation.mmd` | Sanitary Investigation subdomain |
-| `sigevs-o-response.mmd` | Sanitary Response subdomain |
-| `sigevs-o-field.mmd` | Field Actions subdomain |
+| `onto-complete.mmd` | Complete model (31 classes, all subdomains) |
+| `onto-core.mmd` | Core subdomain |
+| `onto-investigation.mmd` | Sanitary Investigation subdomain |
+| `onto-response.mmd` | Sanitary Response subdomain |
+| `onto-field.mmd` | Field Actions subdomain |
 | `architecture.mmd` | PDSA-RS platform architecture |
 
 ## Colour Scheme
@@ -24,6 +24,8 @@ OntoUML conceptual model of SIGEVS-O, expressed as Mermaid class diagrams.
 
 ## Regenerate PNGs
 
+Run from the `sigevs-o/` directory:
+
 ```bash
-npx @mermaid-js/mermaid-cli -i sigevs-o-complete.mmd -o sigevs-o-complete.png -w 2400 -s 3 -b white
+npx @mermaid-js/mermaid-cli -i conceptual-model/onto-complete.mmd -o figures/onto-complete.png -w 2400 -s 3 -b white
 ```

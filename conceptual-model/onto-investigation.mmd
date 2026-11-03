@@ -34,16 +34,14 @@ classDiagram
     }
 
     SanitaryAnalysis --> Person : createdBy
-    SanitaryAnalysis --> InvestigationTarget : delimits
-    SanitaryAnalysis --> AffectedArea : involves
-    SanitaryAnalysis --> SpeciesCategory : involves
+    SanitaryAnalysis --> InvestigationTarget : hasTarget
+    SanitaryAnalysis --> AffectedArea : covers
     InvestigationTarget --> ControlZone : hasZone
-    AffectedArea --> ControlZone : delimitedBy
     AnimalMovement --> Establishment : origin
     AnimalMovement --> Establishment : destination
-    InvestigationTarget --> AnimalMovement : tracks
-    InvestigationTarget --> ContactingProperty : identifies
     AnimalSpecies --> SpeciesCategory : classifiedBy
+    Establishment <|-- InvestigationTarget
+    Establishment <|-- ContactingProperty
 
     style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
     style InvestigationTarget fill:#fff3e0,stroke:#ef6c00,stroke-width:2px

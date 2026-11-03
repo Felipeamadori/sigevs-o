@@ -15,8 +15,8 @@ Generated diagrams from Mermaid source files.
 
 ## Regeneration
 
-PNGs are generated from `.mmd` files in `conceptual-model/`:
+PNGs are generated from `.mmd` files in `conceptual-model/`. Run from the `sigevs-o/` directory:
 
 ```bash
-npx @mermaid-js/mermaid-cli -i conceptual-model/sigevs-o-complete.mmd -o onto-complete.png -w 2400 -s 3 -b white
+npx @mermaid-js/mermaid-cli -i conceptual-model/onto-complete.mmd -o figures/onto-complete.png -w 2400 -s 3 -b white
 ```
