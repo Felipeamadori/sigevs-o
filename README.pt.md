@@ -19,6 +19,7 @@ sigevs-o/
 └── figures/                   # Diagramas gerados
 ```
 
+<!-- Citação e referências ao artigo ficam ocultas até a submissão/publicação.
 ## Como Citar
 
 ```bibtex
@@ -28,7 +29,8 @@ sigevs-o/
   journal={Computers and Electronics in Agriculture},
   year={2026}
 }
-```
+``` 
+-->
 
 ## Licença
 
@@ -36,6 +38,6 @@ Este trabalho está licenciado sob [CC-BY-4.0](LICENSE).
 
 ## Links
 
-- **Artigo:** [Computers and Electronics in Agriculture](https://doi.org/TODO)
+<!-- - **Artigo:** [Computers and Electronics in Agriculture](https://doi.org/TODO) -->
 - **Sistema SIGEVS:** [https://sigevs.pdsa.rs.gov.br](https://sigevs.pdsa.rs.gov.br)
 - **Plataforma PDSA-RS:** [https://pdsa.rs.gov.br](https://pdsa.rs.gov.br)
