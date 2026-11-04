@@ -1,0 +1,1293 @@
+@prefix ex: <http://example.org/sigevs-sample#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sigevs: <https://sigevs.ontologies#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:EstabelecimentoDistante a sigevs:Estabelecimento ;
+    sigevs:codigoEstabelecimento "SDA-004" ;
+    sigevs:coordenadas "POINT(-51.2000 -29.5000)" ;
+    sigevs:nomeEstabelecimento "Fazenda Santa Rita" .
+
+ex:FocoHPAI a sigevs:AlvoInvestigacao ;
+    sigevs:alvoDeAnalise ex:AnaliseHPAI ;
+    sigevs:alvoInvestigacaoHasZonaControleInvestigacao ex:ZonaPerifocal,
+        ex:ZonaProtecao,
+        ex:ZonaVigilancia ;
+    sigevs:coordenadas "POINT(-51.4611 -29.6886)" ;
+    sigevs:nomeAlvo "Foco HPAI" .
+
+ex:Submissao1 a sigevs:SubmissaoPropriedade ;
+    sigevs:RealizadaPor ex:EquipeA ;
+    sigevs:VinculadaA ex:PIA1 ;
+    sigevs:uuidSubmissao "sub-0001" .
+
+ex:SubmissaoBarreira1 a sigevs:SubmissaoBarreira ;
+    sigevs:submissaoBarreiraHasBarreiraSanitaria ex:BarreiraBR287 ;
+    sigevs:uuidSubmissaoBarreira "sub-bar-0001" .
+
+ex:Temporaria1 a sigevs:PropriedadeTemporaria ;
+    sigevs:coordenadas "POINT(-51.4600 -29.6870)" ;
+    sigevs:cpfCnpj "44444444444" ;
+    sigevs:nomeContato "Maria Souza" ;
+    sigevs:telefone "+55 55 99999-0000" .
+
+<https://sigevs.ontologies> a owl:Ontology ;
+    rdfs:comment "SIGEVS-O: A Domain Ontology for Veterinary Emergency Management. gUFO/OWL formalisation completed from the Visual Paradigm export (SIGEVS-O.ttl), including attributes, inverse relations, keys and the formal axioms documented in the SABiOx artefacts."@en ;
+    owl:imports <http://purl.org/nemo/gufo#> ;
+    owl:versionInfo "1.0" .
+
+sigevs:CicloFechado a owl:Class ;
+    rdfs:label "Closed Surveillance Cycle"@en,
+        "Ciclo de Vigilancia Fechado"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom sigevs:AreaConcluida ;
+            owl:onProperty sigevs:areaDoCiclo ] ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( sigevs:CicloVigilancia [ a owl:Restriction ;
+                        owl:hasValue true ;
+                        owl:onProperty sigevs:cicloFechado ] ) ] .
+
+sigevs:ClassificaSe a owl:ObjectProperty ;
+    rdfs:label "classified as"@en,
+        "Classifica-se"@pt ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:TipoEquipe .
+
+sigevs:CriadaPor a owl:ObjectProperty ;
+    rdfs:label "created by"@en,
+        "Criada por"@pt ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range sigevs:Pessoa .
+
+sigevs:Desempenha a owl:ObjectProperty ;
+    rdfs:label "performs"@en,
+        "Desempenha"@pt ;
+    rdfs:domain sigevs:MembroEquipe ;
+    rdfs:range sigevs:Funcao .
+
+sigevs:Destino a owl:ObjectProperty ;
+    rdfs:label "destination"@en,
+        "Destino"@pt ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range sigevs:Estabelecimento .
+
+sigevs:Opera a owl:ObjectProperty ;
+    rdfs:label "operates"@en,
+        "Opera"@pt ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:BarreiraSanitaria .
+
+sigevs:Origem a owl:ObjectProperty ;
+    rdfs:label "origin"@en,
+        "Origem"@pt ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range sigevs:Estabelecimento .
+
+sigevs:PessoaEmQuarentena a owl:Class ;
+    rdfs:label "Person in Quarantine"@en,
+        "Pessoa em Quarentena"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:quarentenaAte ] ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( sigevs:PessoaConvocada [ a owl:Restriction ;
+                        owl:hasValue true ;
+                        owl:onProperty sigevs:emQuarentena ] ) ] .
+
+sigevs:PropriedadeContactante a <http://purl.org/nemo/gufo#Role>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Contacting Property"@en,
+        "Propriedade Contactante"@pt ;
+    rdfs:subClassOf sigevs:Estabelecimento .
+
+sigevs:RefereSeA a owl:ObjectProperty ;
+    rdfs:label "refers to"@en,
+        "Refere-se a"@pt ;
+    rdfs:domain sigevs:PropriedadeEmArea ;
+    rdfs:range sigevs:Estabelecimento .
+
+sigevs:Utiliza a owl:ObjectProperty ;
+    rdfs:label "uses"@en,
+        "Utiliza"@pt ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:Veiculo .
+
+sigevs:analisePublica a owl:DatatypeProperty ;
+    rdfs:label "public analysis"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:analiseSanitariaHasAreaAfetada a owl:ObjectProperty ;
+    rdfs:label "has affected area"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range sigevs:AreaAfetada .
+
+sigevs:anoFabricacao a owl:DatatypeProperty ;
+    rdfs:label "manufacturing year"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:integer .
+
+sigevs:ativoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:label "active establishment"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:boolean .
+
+sigevs:ativoFrigorifico a owl:DatatypeProperty ;
+    rdfs:label "active slaughterhouse"@en ;
+    rdfs:domain sigevs:Frigorifico ;
+    rdfs:range xsd:boolean .
+
+sigevs:ativoPessoa a owl:DatatypeProperty ;
+    rdfs:label "active person"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:boolean .
+
+sigevs:bairro a owl:DatatypeProperty ;
+    rdfs:label "district"@en,
+        "Bairro"@pt ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:categoriaEspecieHasEspecieAnimal a owl:ObjectProperty ;
+    rdfs:label "categorizes"@en ;
+    rdfs:domain sigevs:CategoriaEspecie ;
+    rdfs:range sigevs:EspecieAnimal .
+
+sigevs:cep a owl:DatatypeProperty ;
+    rdfs:label "postal code"@en,
+        "CEP"@pt ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:cidade a owl:DatatypeProperty ;
+    rdfs:label "city"@en,
+        "Cidade"@pt ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:codigoCar a owl:DatatypeProperty ;
+    rdfs:label "CAR code"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:string .
+
+sigevs:convocadaAtiva a owl:DatatypeProperty ;
+    rdfs:label "active summons"@en ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range xsd:boolean .
+
+sigevs:cor a owl:DatatypeProperty ;
+    rdfs:label "colour"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:string .
+
+sigevs:corArea a owl:DatatypeProperty ;
+    rdfs:label "area colour"@en ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range xsd:string .
+
+sigevs:corEquipe a owl:DatatypeProperty ;
+    rdfs:label "team colour"@en ;
+    rdfs:domain sigevs:TipoEquipe ;
+    rdfs:range xsd:string .
+
+sigevs:cpfCnpj a owl:DatatypeProperty ;
+    rdfs:label "CPF/CNPJ"@en ;
+    rdfs:domain sigevs:PropriedadeTemporaria ;
+    rdfs:range xsd:string .
+
+sigevs:criadaEm a owl:DatatypeProperty ;
+    rdfs:label "created at"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:dateTime .
+
+sigevs:dadosSubmissao a owl:DatatypeProperty ;
+    rdfs:label "submission data"@en ;
+    rdfs:domain sigevs:SubmissaoPropriedade ;
+    rdfs:range xsd:string .
+
+sigevs:dadosSubmissaoBarreira a owl:DatatypeProperty ;
+    rdfs:label "barrier submission data"@en ;
+    rdfs:domain sigevs:SubmissaoBarreira ;
+    rdfs:range xsd:string .
+
+sigevs:dataCadastro a owl:DatatypeProperty ;
+    rdfs:label "registration date"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:dateTime .
+
+sigevs:dataFimZona a owl:DatatypeProperty ;
+    rdfs:label "zone end date"@en ;
+    rdfs:domain sigevs:ZonaPorCiclo ;
+    rdfs:range xsd:dateTime .
+
+sigevs:dataInicioZona a owl:DatatypeProperty ;
+    rdfs:label "zone start date"@en ;
+    rdfs:domain sigevs:ZonaPorCiclo ;
+    rdfs:range xsd:dateTime .
+
+sigevs:dataMovimentacao a owl:DatatypeProperty ;
+    rdfs:label "movement date"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:dateTime .
+
+sigevs:enderecoPosto a owl:DatatypeProperty ;
+    rdfs:label "command post address"@en ;
+    rdfs:domain sigevs:PostoComando ;
+    rdfs:range xsd:string .
+
+sigevs:equipeAtiva a owl:DatatypeProperty ;
+    rdfs:label "active team"@en ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range xsd:boolean .
+
+sigevs:especieAnimalHasEstabelecimento a owl:ObjectProperty ;
+    rdfs:label "explored in"@en ;
+    rdfs:domain sigevs:EspecieAnimal ;
+    rdfs:range sigevs:Estabelecimento .
+
+sigevs:especieExploracao a owl:DatatypeProperty ;
+    rdfs:label "explored species"@en ;
+    rdfs:domain sigevs:GranjaAve ;
+    rdfs:range xsd:string .
+
+sigevs:especieMovimentada a owl:DatatypeProperty ;
+    rdfs:label "moved species"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:string .
+
+sigevs:estabelecimentoHasEndereco a owl:ObjectProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range sigevs:Endereco .
+
+sigevs:exibirCar a owl:DatatypeProperty ;
+    rdfs:label "show CAR"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:faseResposta a owl:DatatypeProperty ;
+    rdfs:label "response phase"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:fimMovimentacao a owl:DatatypeProperty ;
+    rdfs:label "movement end date"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range xsd:dateTime .
+
+sigevs:finalidadeExploracao a owl:DatatypeProperty ;
+    rdfs:label "exploration purpose"@en ;
+    rdfs:domain sigevs:GranjaSuino ;
+    rdfs:range xsd:string .
+
+sigevs:finalidadeExploracaoTipo a owl:DatatypeProperty ;
+    rdfs:label "exploration purpose type"@en ;
+    rdfs:domain sigevs:GranjaSuino ;
+    rdfs:range xsd:string .
+
+sigevs:finalidadeMovimentacao a owl:DatatypeProperty ;
+    rdfs:label "movement purpose"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:string .
+
+sigevs:finalidadeProducao a owl:DatatypeProperty ;
+    rdfs:label "production purpose"@en ;
+    rdfs:domain sigevs:GranjaAve ;
+    rdfs:range xsd:string .
+
+sigevs:formaExploracao a owl:DatatypeProperty ;
+    rdfs:label "exploration form"@en ;
+    rdfs:domain sigevs:GranjaAve ;
+    rdfs:range xsd:string .
+
+sigevs:geometriaAreaAfetada a owl:DatatypeProperty ;
+    rdfs:label "affected area geometry (WKT)"@en ;
+    rdfs:domain sigevs:AreaAfetada ;
+    rdfs:range xsd:string .
+
+sigevs:geometriaCar a owl:DatatypeProperty ;
+    rdfs:label "CAR geometry (WKT)"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:string .
+
+sigevs:geometriaZona a owl:DatatypeProperty ;
+    rdfs:label "zone geometry (WKT)"@en ;
+    rdfs:domain sigevs:ZonaControleInvestigacao ;
+    rdfs:range xsd:string .
+
+sigevs:identificadorResposta a owl:DatatypeProperty ;
+    rdfs:label "response identifier"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:inicioMovimentacao a owl:DatatypeProperty ;
+    rdfs:label "movement start date"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range xsd:dateTime .
+
+sigevs:integradora a owl:DatatypeProperty ;
+    rdfs:label "integrator company"@en ;
+    rdfs:domain sigevs:GranjaSuino ;
+    rdfs:range xsd:string .
+
+sigevs:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude"@en ;
+    rdfs:range xsd:double .
+
+sigevs:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude"@en ;
+    rdfs:range xsd:double .
+
+sigevs:marca a owl:DatatypeProperty ;
+    rdfs:label "brand"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:string .
+
+sigevs:membroAtivo a owl:DatatypeProperty ;
+    rdfs:label "active member"@en ;
+    rdfs:domain sigevs:MembroEquipe ;
+    rdfs:range xsd:boolean .
+
+sigevs:metadados a owl:DatatypeProperty ;
+    rdfs:label "metadata filters"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:metadadosRastreamento a owl:DatatypeProperty ;
+    rdfs:label "tracking metadata"@en ;
+    rdfs:domain sigevs:RastreamentoGps ;
+    rdfs:range xsd:string .
+
+sigevs:modelo a owl:DatatypeProperty ;
+    rdfs:label "model"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:string .
+
+sigevs:movimentacaoEntrada a owl:DatatypeProperty ;
+    rdfs:label "incoming movements"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range xsd:string .
+
+sigevs:movimentacaoSaida a owl:DatatypeProperty ;
+    rdfs:label "outgoing movements"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range xsd:string .
+
+sigevs:nomeAlvo a owl:DatatypeProperty ;
+    rdfs:label "target name"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range xsd:string .
+
+sigevs:nomeAnalise a owl:DatatypeProperty ;
+    rdfs:label "analysis name"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:nomeArea a owl:DatatypeProperty ;
+    rdfs:label "area name"@en ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range xsd:string .
+
+sigevs:nomeAreaAfetada a owl:DatatypeProperty ;
+    rdfs:label "affected area name"@en ;
+    rdfs:domain sigevs:AreaAfetada ;
+    rdfs:range xsd:string .
+
+sigevs:nomeBarreira a owl:DatatypeProperty ;
+    rdfs:label "barrier name"@en ;
+    rdfs:domain sigevs:BarreiraSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:nomeContato a owl:DatatypeProperty ;
+    rdfs:label "contact name"@en ;
+    rdfs:domain sigevs:PropriedadeTemporaria ;
+    rdfs:range xsd:string .
+
+sigevs:nomeEquipe a owl:DatatypeProperty ;
+    rdfs:label "team name"@en ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range xsd:string .
+
+sigevs:nomeEstabelecimento a owl:DatatypeProperty ;
+    rdfs:label "establishment name"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:string .
+
+sigevs:nomeFuncao a owl:DatatypeProperty ;
+    rdfs:label "function name"@en ;
+    rdfs:domain sigevs:Funcao ;
+    rdfs:range xsd:string .
+
+sigevs:nomePessoa a owl:DatatypeProperty ;
+    rdfs:label "person name"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:string .
+
+sigevs:nomePosto a owl:DatatypeProperty ;
+    rdfs:label "command post name"@en ;
+    rdfs:domain sigevs:PostoComando ;
+    rdfs:range xsd:string .
+
+sigevs:nomeTipoEquipe a owl:DatatypeProperty ;
+    rdfs:label "team type name"@en ;
+    rdfs:domain sigevs:TipoEquipe ;
+    rdfs:range xsd:string .
+
+sigevs:numeroEndereco a owl:DatatypeProperty ;
+    rdfs:label "street number"@en ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:numeroInspecao a owl:DatatypeProperty ;
+    rdfs:label "inspection number"@en ;
+    rdfs:domain sigevs:Frigorifico ;
+    rdfs:range xsd:string .
+
+sigevs:observacoesPosto a owl:DatatypeProperty ;
+    rdfs:label "command post notes"@en ;
+    rdfs:domain sigevs:PostoComando ;
+    rdfs:range xsd:string .
+
+sigevs:papelBarreira a owl:DatatypeProperty ;
+    rdfs:label "barrier role"@en ;
+    rdfs:comment "Values: SANITARY, DIVERSION."@en ;
+    rdfs:domain sigevs:BarreiraSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:placa a owl:DatatypeProperty ;
+    rdfs:label "license plate"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:string .
+
+sigevs:pontosLimiteArea a owl:DatatypeProperty ;
+    rdfs:label "area boundary points"@en ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range xsd:string .
+
+sigevs:pontosLimiteZona a owl:DatatypeProperty ;
+    rdfs:label "zone boundary points"@en ;
+    rdfs:domain sigevs:ZonaPorCiclo ;
+    rdfs:range xsd:string .
+
+sigevs:prazoResposta a owl:DatatypeProperty ;
+    rdfs:label "response due date"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:dateTime .
+
+sigevs:producaoComercial a owl:DatatypeProperty ;
+    rdfs:label "commercial production"@en ;
+    rdfs:domain sigevs:GranjaAve ;
+    rdfs:range xsd:boolean .
+
+sigevs:quantidadeAnimais a owl:DatatypeProperty ;
+    rdfs:label "number of animals"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:integer .
+
+sigevs:raio a owl:DatatypeProperty ;
+    rdfs:label "zone radius"@en ;
+    rdfs:domain sigevs:ZonaControleInvestigacao ;
+    rdfs:range xsd:double .
+
+sigevs:rastreamentoGpsHasVeiculo a owl:ObjectProperty ;
+    rdfs:label "tracks vehicle"@en ;
+    rdfs:domain sigevs:RastreamentoGps ;
+    rdfs:range sigevs:Veiculo .
+
+sigevs:registro a owl:DatatypeProperty ;
+    rdfs:label "registration"@en ;
+    rdfs:domain sigevs:GranjaSuino ;
+    rdfs:range xsd:string .
+
+sigevs:respostaPublica a owl:DatatypeProperty ;
+    rdfs:label "public response"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:rotuloRastreamento a owl:DatatypeProperty ;
+    rdfs:label "tracking label"@en ;
+    rdfs:domain sigevs:RastreamentoGps ;
+    rdfs:range xsd:string .
+
+sigevs:rua a owl:DatatypeProperty ;
+    rdfs:label "street"@en,
+        "Rua"@pt ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:setorEquipe a owl:DatatypeProperty ;
+    rdfs:label "team sector"@en ;
+    rdfs:domain sigevs:TipoEquipe ;
+    rdfs:range xsd:string .
+
+sigevs:sistemaInspecao a owl:DatatypeProperty ;
+    rdfs:label "inspection system (SIF/SIE/SIM)"@en ;
+    rdfs:domain sigevs:Frigorifico ;
+    rdfs:range xsd:string .
+
+sigevs:telefone a owl:DatatypeProperty ;
+    rdfs:label "phone number"@en ;
+    rdfs:domain sigevs:PropriedadeTemporaria ;
+    rdfs:range xsd:string .
+
+sigevs:tipoBarreira a owl:DatatypeProperty ;
+    rdfs:label "barrier type"@en ;
+    rdfs:comment "Values: FIXED, MOBILE."@en ;
+    rdfs:domain sigevs:BarreiraSanitaria ;
+    rdfs:range xsd:string .
+
+sigevs:tipoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:label "establishment type"@en ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:string .
+
+sigevs:tipoVeiculo a owl:DatatypeProperty ;
+    rdfs:label "vehicle type"@en ;
+    rdfs:domain sigevs:Veiculo ;
+    rdfs:range xsd:string .
+
+sigevs:tipoZona a owl:DatatypeProperty ;
+    rdfs:label "zone type"@en ;
+    rdfs:comment "Values: INFECTED (perifocal), BUFFER (surveillance), SURVEILLANCE (protection), INVESTIGATION."@en ;
+    rdfs:domain sigevs:ZonaControleInvestigacao ;
+    rdfs:range xsd:string .
+
+sigevs:uf a owl:DatatypeProperty ;
+    rdfs:label "state"@en,
+        "UF"@pt ;
+    rdfs:domain sigevs:Endereco ;
+    rdfs:range xsd:string .
+
+sigevs:uuidSubmissao a owl:DatatypeProperty ;
+    rdfs:label "submission uuid"@en ;
+    rdfs:domain sigevs:SubmissaoPropriedade ;
+    rdfs:range xsd:string .
+
+sigevs:uuidSubmissaoBarreira a owl:DatatypeProperty ;
+    rdfs:label "barrier submission uuid"@en ;
+    rdfs:domain sigevs:SubmissaoBarreira ;
+    rdfs:range xsd:string .
+
+ex:AnaPereira a sigevs:MembroEquipe,
+        sigevs:Pessoa ;
+    sigevs:cpf "22222222222" ;
+    sigevs:email "ana.pereira@example.org" ;
+    sigevs:keycloakSubjectId "kc-002" ;
+    sigevs:nomePessoa "Ana Pereira" .
+
+ex:AreaB a sigevs:AreaOperacional ;
+    sigevs:Contem ex:PIA3 ;
+    sigevs:PertenceA ex:ZonaCiclo1 ;
+    sigevs:areaDaEquipe ex:EquipeB ;
+    sigevs:nomeArea "Area B" .
+
+ex:BarreiraBR287 a sigevs:BarreiraSanitaria ;
+    sigevs:coordenadas "POINT(-51.4300 -29.6700)" ;
+    sigevs:nomeBarreira "Barreira BR-287" ;
+    sigevs:papelBarreira "SANITARY" ;
+    sigevs:tipoBarreira "FIXED" .
+
+ex:CarlosSouza a sigevs:MembroEquipe,
+        sigevs:Pessoa ;
+    sigevs:cpf "33333333333" ;
+    sigevs:email "carlos.souza@example.org" ;
+    sigevs:keycloakSubjectId "kc-003" ;
+    sigevs:nomePessoa "Carlos Souza" .
+
+ex:EquipeB a sigevs:EquipeCampo ;
+    sigevs:CompostaPor ex:CarlosSouza ;
+    sigevs:equipeAlocadaEm ex:Ciclo1 ;
+    sigevs:nomeEquipe "Equipe B" .
+
+ex:EstabelecimentoFoco a sigevs:Estabelecimento ;
+    sigevs:codigoEstabelecimento "SDA-001" ;
+    sigevs:coordenadas "POINT(-51.4611 -29.6886)" ;
+    sigevs:nomeEstabelecimento "Granja Sao Joao" .
+
+ex:EstabelecimentoIntermediario a sigevs:Estabelecimento ;
+    sigevs:codigoEstabelecimento "SDA-003" ;
+    sigevs:coordenadas "POINT(-51.4000 -29.6500)" ;
+    sigevs:nomeEstabelecimento "Fazenda Tres Pinheiros" .
+
+ex:EstabelecimentoVizinho a sigevs:Estabelecimento ;
+    sigevs:codigoEstabelecimento "SDA-002" ;
+    sigevs:coordenadas "POINT(-51.4500 -29.6800)" ;
+    sigevs:nomeEstabelecimento "Sitio Boa Vista" .
+
+ex:JoaoSilva a sigevs:MembroEquipe,
+        sigevs:Pessoa,
+        sigevs:PessoaConvocada ;
+    sigevs:Convoca ex:RespostaMontenegro ;
+    sigevs:cpf "11111111111" ;
+    sigevs:emQuarentena false ;
+    sigevs:email "joao.silva@example.org" ;
+    sigevs:keycloakSubjectId "kc-001" ;
+    sigevs:nomePessoa "Joao Silva" ;
+    sigevs:permissaoGestao true ;
+    sigevs:permissaoObservacao false .
+
+ex:PIA2 a sigevs:PropriedadeEmArea ;
+    sigevs:RefereSeA ex:EstabelecimentoVizinho ;
+    sigevs:contidaEmArea ex:AreaA ;
+    sigevs:visitaConcluida true .
+
+ex:PIA3 a sigevs:PropriedadeEmArea ;
+    sigevs:RefereSeA ex:EstabelecimentoIntermediario ;
+    sigevs:contidaEmArea ex:AreaB ;
+    sigevs:visitaConcluida true .
+
+ex:PostoComando1 a sigevs:PostoComando ;
+    sigevs:nomePosto "QG Montenegro" ;
+    sigevs:postoDaResposta ex:RespostaMontenegro .
+
+ex:ZonaPerifocal a sigevs:ZonaControleInvestigacao ;
+    sigevs:raio 3.0 ;
+    sigevs:tipoZona "INFECTED" .
+
+ex:ZonaProtecao a sigevs:ZonaControleInvestigacao ;
+    sigevs:raio 15.0 ;
+    sigevs:tipoZona "SURVEILLANCE" .
+
+ex:ZonaVigilancia a sigevs:ZonaControleInvestigacao ;
+    sigevs:raio 10.0 ;
+    sigevs:tipoZona "BUFFER" .
+
+sigevs:Aloca a owl:ObjectProperty ;
+    rdfs:label "allocates"@en,
+        "Aloca"@pt ;
+    rdfs:domain sigevs:CicloVigilancia ;
+    rdfs:range sigevs:EquipeCampo .
+
+sigevs:AreaConcluida a owl:Class ;
+    rdfs:label "Completed Operational Area"@en,
+        "Area Operacional Concluida"@pt ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( sigevs:AreaOperacional [ a owl:Restriction ;
+                        owl:allValuesFrom sigevs:PropriedadeVisitada ;
+                        owl:onProperty sigevs:Contem ] [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty sigevs:Contem ] ) ] .
+
+sigevs:AtuaEm a owl:ObjectProperty ;
+    rdfs:label "operates in"@en,
+        "Atua em"@pt ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:AreaOperacional .
+
+sigevs:BaseadaEm a owl:ObjectProperty ;
+    rdfs:label "based on"@en,
+        "Baseada em"@pt ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range sigevs:AnaliseSanitaria .
+
+sigevs:CategoriaAves a owl:NamedIndividual,
+        sigevs:CategoriaEspecie ;
+    rdfs:label "AVES"@en .
+
+sigevs:CategoriaBovinos a owl:NamedIndividual,
+        sigevs:CategoriaEspecie ;
+    rdfs:label "BOVINOS"@en .
+
+sigevs:CategoriaOutros a owl:NamedIndividual,
+        sigevs:CategoriaEspecie ;
+    rdfs:label "OUTROS"@en .
+
+sigevs:CategoriaOvinos a owl:NamedIndividual,
+        sigevs:CategoriaEspecie ;
+    rdfs:label "OVINOS"@en .
+
+sigevs:CategoriaSuinos a owl:NamedIndividual,
+        sigevs:CategoriaEspecie ;
+    rdfs:label "SUINOS"@en .
+
+sigevs:CompostaPor a owl:ObjectProperty ;
+    rdfs:label "composed of"@en,
+        "Composta por"@pt ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:MembroEquipe .
+
+sigevs:Convoca a owl:ObjectProperty ;
+    rdfs:label "summons for"@en,
+        "Convoca"@pt ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range sigevs:RespostaSanitaria .
+
+sigevs:Possui a owl:ObjectProperty ;
+    rdfs:label "has cycle"@en,
+        "Possui"@pt ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range sigevs:CicloVigilancia .
+
+sigevs:PropriedadeVisitada a owl:Class ;
+    rdfs:label "Visited Property in Area"@en,
+        "Propriedade em Area Visitada"@pt ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( sigevs:PropriedadeEmArea [ a owl:Restriction ;
+                        owl:hasValue true ;
+                        owl:onProperty sigevs:visitaConcluida ] ) ] .
+
+sigevs:RealizadaPor a owl:ObjectProperty ;
+    rdfs:label "performed by"@en,
+        "Realizada por"@pt ;
+    rdfs:domain sigevs:SubmissaoPropriedade ;
+    rdfs:range sigevs:EquipeCampo .
+
+sigevs:SubdivideSe a owl:ObjectProperty ;
+    rdfs:label "subdivides into"@en,
+        "Subdivide-se"@pt ;
+    rdfs:domain sigevs:CicloVigilancia ;
+    rdfs:range sigevs:ZonaPorCiclo .
+
+sigevs:VinculadaA a owl:ObjectProperty ;
+    rdfs:label "linked to"@en,
+        "Vinculada a"@pt ;
+    rdfs:domain sigevs:SubmissaoPropriedade ;
+    rdfs:range sigevs:PropriedadeEmArea .
+
+sigevs:alvoDeAnalise a owl:ObjectProperty ;
+    rdfs:label "target of analysis"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range sigevs:AnaliseSanitaria ;
+    owl:inverseOf sigevs:analiseSanitariaHasAlvoInvestigacao .
+
+sigevs:alvoInvestigacaoHasZonaControleInvestigacao a owl:ObjectProperty ;
+    rdfs:label "has control zone"@en ;
+    rdfs:domain sigevs:AlvoInvestigacao ;
+    rdfs:range sigevs:ZonaControleInvestigacao .
+
+sigevs:analiseAtiva a owl:DatatypeProperty ;
+    rdfs:label "active analysis"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:areaDaEquipe a owl:ObjectProperty ;
+    rdfs:label "belongs to team"@en ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range sigevs:EquipeCampo ;
+    owl:inverseOf sigevs:AtuaEm .
+
+sigevs:areaDoCiclo a owl:ObjectProperty ;
+    rdfs:label "cycle of area"@en ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range sigevs:CicloVigilancia ;
+    owl:propertyChainAxiom ( sigevs:PertenceA sigevs:zonaDoCiclo ) .
+
+sigevs:cicloFechado a owl:DatatypeProperty ;
+    rdfs:label "closed cycle"@en ;
+    rdfs:domain sigevs:CicloVigilancia ;
+    rdfs:range xsd:boolean .
+
+sigevs:contidaEmArea a owl:ObjectProperty ;
+    rdfs:label "contained in area"@en ;
+    rdfs:domain sigevs:PropriedadeEmArea ;
+    rdfs:range sigevs:AreaOperacional ;
+    owl:inverseOf sigevs:Contem .
+
+sigevs:equipeAlocadaEm a owl:ObjectProperty ;
+    rdfs:label "allocated to cycle"@en ;
+    rdfs:domain sigevs:EquipeCampo ;
+    rdfs:range sigevs:CicloVigilancia ;
+    owl:inverseOf sigevs:Aloca .
+
+sigevs:fimRastreamento a owl:DatatypeProperty ;
+    rdfs:label "tracking end"@en ;
+    rdfs:domain sigevs:RastreamentoGps ;
+    rdfs:range xsd:dateTime .
+
+sigevs:inicioRastreamento a owl:DatatypeProperty ;
+    rdfs:label "tracking start"@en ;
+    rdfs:domain sigevs:RastreamentoGps ;
+    rdfs:range xsd:dateTime .
+
+sigevs:permissaoGestao a owl:DatatypeProperty ;
+    rdfs:label "management permission"@en ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range xsd:boolean .
+
+sigevs:permissaoObservacao a owl:DatatypeProperty ;
+    rdfs:label "observer permission"@en ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range xsd:boolean .
+
+sigevs:postoDaResposta a owl:ObjectProperty ;
+    rdfs:label "command post of response"@en ;
+    rdfs:domain sigevs:PostoComando ;
+    rdfs:range sigevs:RespostaSanitaria ;
+    owl:inverseOf sigevs:Tem .
+
+sigevs:quarentenaAte a owl:DatatypeProperty ;
+    rdfs:label "quarantine until"@en ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range xsd:dateTime .
+
+sigevs:respostaAtiva a owl:DatatypeProperty ;
+    rdfs:label "active response"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:respostaConcluida a owl:DatatypeProperty ;
+    rdfs:label "completed response"@en ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range xsd:boolean .
+
+sigevs:submissaoBarreiraHasBarreiraSanitaria a owl:ObjectProperty ;
+    rdfs:label "linked to barrier"@en ;
+    rdfs:domain sigevs:SubmissaoBarreira ;
+    rdfs:range sigevs:BarreiraSanitaria .
+
+sigevs:zonaDoCiclo a owl:ObjectProperty ;
+    rdfs:label "zone of cycle"@en ;
+    rdfs:domain sigevs:ZonaPorCiclo ;
+    rdfs:range sigevs:CicloVigilancia ;
+    owl:inverseOf sigevs:SubdivideSe .
+
+sigevs:zonaFechada a owl:DatatypeProperty ;
+    rdfs:label "closed zone"@en ;
+    rdfs:domain sigevs:ZonaPorCiclo ;
+    rdfs:range xsd:boolean .
+
+ex:AnaliseHPAI a sigevs:AnaliseSanitaria ;
+    sigevs:analiseAtiva true ;
+    sigevs:criadaEm "2025-05-16T08:00:00"^^xsd:dateTime ;
+    sigevs:nomeAnalise "Investigacao HPAI Montenegro" .
+
+ex:AreaA a sigevs:AreaOperacional ;
+    sigevs:Contem ex:PIA1,
+        ex:PIA2 ;
+    sigevs:PertenceA ex:ZonaCiclo1 ;
+    sigevs:areaDaEquipe ex:EquipeA ;
+    sigevs:nomeArea "Area A" .
+
+ex:EquipeA a sigevs:EquipeCampo ;
+    sigevs:CompostaPor ex:AnaPereira,
+        ex:JoaoSilva ;
+    sigevs:equipeAlocadaEm ex:Ciclo1 ;
+    sigevs:nomeEquipe "Equipe A" .
+
+ex:PIA1 a sigevs:PropriedadeEmArea ;
+    sigevs:RefereSeA ex:EstabelecimentoFoco ;
+    sigevs:contidaEmArea ex:AreaA ;
+    sigevs:visitaConcluida true .
+
+ex:ZonaCiclo1 a sigevs:ZonaPorCiclo ;
+    sigevs:zonaDoCiclo ex:Ciclo1 ;
+    sigevs:zonaFechada true .
+
+sigevs:EspecieAnimal a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Animal Species"@en,
+        "Especie Animal"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:Funcao a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Function"@en,
+        "Funcao"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:PertenceA a owl:ObjectProperty ;
+    rdfs:label "belongs to"@en,
+        "Pertence a"@pt ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range sigevs:ZonaPorCiclo .
+
+sigevs:Tem a owl:ObjectProperty ;
+    rdfs:label "has command post"@en,
+        "Tem"@pt ;
+    rdfs:domain sigevs:RespostaSanitaria ;
+    rdfs:range sigevs:PostoComando .
+
+sigevs:analiseSanitariaHasAlvoInvestigacao a owl:ObjectProperty ;
+    rdfs:label "has investigation target"@en ;
+    rdfs:domain sigevs:AnaliseSanitaria ;
+    rdfs:range sigevs:AlvoInvestigacao .
+
+sigevs:cicloPertenceAResposta a owl:ObjectProperty ;
+    rdfs:label "belongs to response"@en ;
+    rdfs:domain sigevs:CicloVigilancia ;
+    rdfs:range sigevs:RespostaSanitaria ;
+    owl:inverseOf sigevs:Possui .
+
+sigevs:codigoEstabelecimento a owl:DatatypeProperty ;
+    rdfs:label "SDA code"@en,
+        "Codigo SDA"@pt ;
+    rdfs:domain sigevs:Estabelecimento ;
+    rdfs:range xsd:string .
+
+sigevs:coordenadas a owl:DatatypeProperty ;
+    rdfs:label "coordinates (WKT)"@en,
+        "Coordenadas (WKT)"@pt ;
+    rdfs:comment "AX-GEO-02: coordinates stored as WKT strings (PostGIS GEOGRAPHY at implementation level; consumed as WKT literals by GeoSPARQL queries)."@en ;
+    rdfs:range xsd:string .
+
+sigevs:cpf a owl:DatatypeProperty ;
+    rdfs:label "CPF"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:string .
+
+sigevs:emQuarentena a owl:DatatypeProperty ;
+    rdfs:label "in quarantine"@en ;
+    rdfs:domain sigevs:PessoaConvocada ;
+    rdfs:range xsd:boolean .
+
+sigevs:email a owl:DatatypeProperty ;
+    rdfs:label "email"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:string .
+
+sigevs:numeroCiclo a owl:DatatypeProperty ;
+    rdfs:label "cycle number"@en ;
+    rdfs:domain sigevs:CicloVigilancia ;
+    rdfs:range xsd:integer .
+
+sigevs:numeroGTA a owl:DatatypeProperty ;
+    rdfs:label "GTA number"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:string .
+
+sigevs:serie a owl:DatatypeProperty ;
+    rdfs:label "GTA series"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:string .
+
+sigevs:ufOrigem a owl:DatatypeProperty ;
+    rdfs:label "origin state"@en ;
+    rdfs:domain sigevs:MovimentacaoAnimal ;
+    rdfs:range xsd:string .
+
+sigevs:visitaConcluida a owl:DatatypeProperty ;
+    rdfs:label "visit completed"@en ;
+    rdfs:domain sigevs:PropriedadeEmArea ;
+    rdfs:range xsd:boolean .
+
+ex:Ciclo1 a sigevs:CicloVigilancia ;
+    sigevs:cicloFechado true ;
+    sigevs:cicloPertenceAResposta ex:RespostaMontenegro ;
+    sigevs:numeroCiclo 1 .
+
+ex:RespostaMontenegro a sigevs:RespostaSanitaria ;
+    sigevs:BaseadaEm ex:AnaliseHPAI ;
+    sigevs:Tem ex:PostoComando1 ;
+    sigevs:identificadorResposta "RESP-2025-001" ;
+    sigevs:respostaAtiva true ;
+    sigevs:respostaConcluida false .
+
+sigevs:AreaAfetada a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Affected Area"@en,
+        "Area Afetada"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:Contem a owl:ObjectProperty ;
+    rdfs:label "contains"@en,
+        "Contem"@pt ;
+    rdfs:domain sigevs:AreaOperacional ;
+    rdfs:range sigevs:PropriedadeEmArea .
+
+sigevs:Frigorifico a <http://purl.org/nemo/gufo#SubKind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Slaughterhouse"@en,
+        "Frigorifico"@pt ;
+    rdfs:subClassOf sigevs:Estabelecimento .
+
+sigevs:keycloakSubjectId a owl:DatatypeProperty ;
+    rdfs:label "Keycloak subject id"@en ;
+    rdfs:domain sigevs:Pessoa ;
+    rdfs:range xsd:string .
+
+sigevs:GranjaAve a <http://purl.org/nemo/gufo#SubKind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Poultry Farm"@en,
+        "Granja de Aves"@pt ;
+    rdfs:subClassOf sigevs:Estabelecimento .
+
+sigevs:GranjaSuino a <http://purl.org/nemo/gufo#SubKind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Swine Farm"@en,
+        "Granja de Suinos"@pt ;
+    rdfs:subClassOf sigevs:Estabelecimento .
+
+sigevs:PropriedadeTemporaria a <http://purl.org/nemo/gufo#Role>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Temporary Property"@en,
+        "Propriedade Temporaria"@pt ;
+    rdfs:subClassOf sigevs:Estabelecimento .
+
+sigevs:SubmissaoBarreira a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Barrier Submission"@en,
+        "Submissao de Barreira"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:submissaoBarreiraHasBarreiraSanitaria ],
+        <http://purl.org/nemo/gufo#Event> .
+
+sigevs:TipoEquipe a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Team Type"@en,
+        "Tipo de Equipe"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:RastreamentoGps a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "GPS Tracking"@en,
+        "Rastreamento GPS"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:inicioRastreamento ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sigevs:fimRastreamento ],
+        <http://purl.org/nemo/gufo#Event> .
+
+sigevs:SubmissaoPropriedade a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Property Submission"@en,
+        "Submissao de Propriedade"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:VinculadaA ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:RealizadaPor ],
+        <http://purl.org/nemo/gufo#Event> .
+
+sigevs:BarreiraSanitaria a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Sanitary Barrier"@en,
+        "Barreira Sanitaria"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:coordenadas ],
+        <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:CategoriaEspecie a <http://purl.org/nemo/gufo#AbstractIndividualType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Species Category"@en,
+        "Categoria de Especie"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#QualityValue> ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( sigevs:CategoriaAves sigevs:CategoriaSuinos sigevs:CategoriaOvinos sigevs:CategoriaBovinos sigevs:CategoriaOutros ) ] .
+
+sigevs:MembroEquipe a <http://purl.org/nemo/gufo#Role>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Team Member"@en,
+        "Membro de Equipe"@pt ;
+    rdfs:subClassOf sigevs:Pessoa .
+
+sigevs:PostoComando a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Command Post"@en,
+        "Posto de Comando"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sigevs:postoDaResposta ],
+        <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:Endereco a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Address"@en,
+        "Endereco"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:ZonaControleInvestigacao a owl:Class ;
+    rdfs:label "Investigation Control Zone"@en,
+        "Zona de Controle da Investigacao"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#Relator> .
+
+sigevs:PessoaConvocada a <http://purl.org/nemo/gufo#Role>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Summoned Person"@en,
+        "Pessoa Convocada"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:emQuarentena ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:permissaoGestao ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:permissaoObservacao ],
+        sigevs:Pessoa ;
+    owl:hasKey ( sigevs:keycloakSubjectId sigevs:Convoca ) .
+
+sigevs:Veiculo a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Vehicle"@en,
+        "Veiculo"@pt ;
+    rdfs:subClassOf <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:ZonaPorCiclo a owl:Class ;
+    rdfs:label "Zone per Cycle"@en,
+        "Zona por Ciclo"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:zonaFechada ],
+        <http://purl.org/nemo/gufo#Relator> .
+
+sigevs:AlvoInvestigacao a <http://purl.org/nemo/gufo#Role>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Investigation Target"@en,
+        "Alvo de Investigacao"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:alvoDeAnalise ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 3 ;
+            owl:onProperty sigevs:alvoInvestigacaoHasZonaControleInvestigacao ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:coordenadas ],
+        sigevs:Estabelecimento .
+
+sigevs:MovimentacaoAnimal a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Animal Movement"@en,
+        "Movimentacao Animal"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:serie ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:numeroGTA ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:ufOrigem ],
+        <http://purl.org/nemo/gufo#Event> ;
+    owl:hasKey ( sigevs:serie sigevs:numeroGTA sigevs:ufOrigem ) .
+
+sigevs:PropriedadeEmArea a owl:Class ;
+    rdfs:label "Property in Area"@en,
+        "Propriedade em Area"@pt ;
+    rdfs:comment "AX-SEQ-04: the visit status may transition from completed back to pending (reopen operation); modelled as a state transition, not as an OWL restriction."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:contidaEmArea ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:visitaConcluida ],
+        <http://purl.org/nemo/gufo#Relator> .
+
+sigevs:CicloVigilancia a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Surveillance Cycle"@en,
+        "Ciclo de Vigilancia"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:cicloPertenceAResposta ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:numeroCiclo ],
+        <http://purl.org/nemo/gufo#Event> ;
+    owl:hasKey ( sigevs:numeroCiclo sigevs:cicloPertenceAResposta ) .
+
+sigevs:AnaliseSanitaria a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Sanitary Analysis"@en,
+        "Analise Sanitaria"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sigevs:analiseSanitariaHasAlvoInvestigacao ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:analiseAtiva ],
+        <http://purl.org/nemo/gufo#Event> .
+
+sigevs:AreaOperacional a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Operational Area"@en,
+        "Area Operacional"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:areaDaEquipe ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:PertenceA ],
+        <http://purl.org/nemo/gufo#FunctionalComplex> .
+
+sigevs:Pessoa a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Person"@en,
+        "Pessoa"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:keycloakSubjectId ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:cpf ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:email ],
+        <http://purl.org/nemo/gufo#FunctionalComplex> ;
+    owl:hasKey ( sigevs:keycloakSubjectId ),
+        ( sigevs:cpf ),
+        ( sigevs:email ) .
+
+sigevs:EquipeCampo a owl:Class ;
+    rdfs:label "Field Team"@en,
+        "Equipe de Campo"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:equipeAlocadaEm ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty sigevs:CompostaPor ],
+        <http://purl.org/nemo/gufo#VariableCollection> .
+
+sigevs:RespostaSanitaria a <http://purl.org/nemo/gufo#EventType>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Sanitary Response"@en,
+        "Resposta Sanitaria"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:BaseadaEm ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty sigevs:Tem ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:respostaAtiva ],
+        [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:respostaConcluida ],
+        <http://purl.org/nemo/gufo#Event> .
+
+sigevs:Estabelecimento a <http://purl.org/nemo/gufo#Kind>,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Establishment"@en,
+        "Estabelecimento"@pt ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality 1 ;
+            owl:onProperty sigevs:codigoEstabelecimento ],
+        <http://purl.org/nemo/gufo#FunctionalComplex> ;
+    owl:hasKey ( sigevs:codigoEstabelecimento ) .
+

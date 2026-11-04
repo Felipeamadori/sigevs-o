@@ -10,9 +10,9 @@ The script performs three steps:
    AX-SEQ-02/AX-SEQ-03 constraint is violated (detected as an inconsistency)
    in a deliberately flawed scenario: a cycle marked as closed while one of
    its properties remains unvisited.
-3. Executes SPARQL queries equivalent to the competency questions reported in
-   the paper (CQ-CORE-01, CQ-INV-01, CQ-RES-03, CQ-CAM-04) against the
-   populated ontology.
+3. Executes the representative SPARQL queries in ``sparql/`` against the
+   populated ontology (CQ-CORE-01, CQ-RES-03, CQ-CAM-04) and evaluates
+   CQ-INV-01 with a haversine filter equivalent to its GeoSPARQL query.
 
 Requirements: rdflib, owlready2 (and Java, used by HermiT).
 
@@ -50,6 +50,12 @@ EX = Namespace("http://example.org/sigevs-sample#")
 GUFO_TTL_URL = "https://nemo-ufes.github.io/gufo/gufo.ttl"
 
 DEFAULT_ONTOLOGY = Path(__file__).resolve().parents[1] / "ontology" / "SIGEVS-O-complete.ttl"
+SPARQL_DIR = Path(__file__).resolve().parents[1] / "sparql"
+
+
+def load_query(name: str) -> str:
+    """Load a representative query from the sparql/ directory."""
+    return (SPARQL_DIR / name).read_text(encoding="utf-8")
 
 # ---------------------------------------------------------------------------
 # Sample ABox: a small outbreak-response scenario inspired by the Montenegro
@@ -215,15 +221,11 @@ ex:SubmissaoBarreira1 a sigevs:SubmissaoBarreira ;
 # the end of the report about the paper listings).
 # ---------------------------------------------------------------------------
 
-CQ_CORE_01 = """
-PREFIX sigevs: <https://sigevs.ontologies#>
-SELECT ?estabelecimento ?nome WHERE {
-  ?estabelecimento a sigevs:Estabelecimento ;
-                   sigevs:nomeEstabelecimento ?nome .
-}
-ORDER BY ?nome
-"""
+CQ_CORE_01 = load_query("cq-core-01.rq")
 
+# CQ-INV-01 is evaluated in Python because the GeoSPARQL query in
+# sparql/cq-inv-01.rq requires a spatial engine; this query retrieves the
+# candidate pairs and the haversine filter is applied below.
 CQ_INV_01 = """
 PREFIX sigevs: <https://sigevs.ontologies#>
 SELECT ?alvo ?tipo ?raio ?alvoCoord ?estabelecimento ?nome ?coord WHERE {
@@ -239,26 +241,9 @@ SELECT ?alvo ?tipo ?raio ?alvoCoord ?estabelecimento ?nome ?coord WHERE {
 ORDER BY ?tipo ?nome
 """
 
-CQ_RES_03 = """
-PREFIX sigevs: <https://sigevs.ontologies#>
-SELECT ?equipe ?nomeEquipe ?membro ?nomeMembro WHERE {
-  ?equipe a sigevs:EquipeCampo ;
-          sigevs:nomeEquipe ?nomeEquipe ;
-          sigevs:CompostaPor ?membro .
-  ?membro a sigevs:MembroEquipe ;
-          sigevs:nomePessoa ?nomeMembro .
-}
-ORDER BY ?nomeEquipe ?nomeMembro
-"""
+CQ_RES_03 = load_query("cq-res-03.rq")
 
-CQ_CAM_04 = """
-PREFIX sigevs: <https://sigevs.ontologies#>
-SELECT ?temporaria ?contato WHERE {
-  ?temporaria a sigevs:PropriedadeTemporaria ;
-              sigevs:nomeContato ?contato .
-}
-ORDER BY ?contato
-"""
+CQ_CAM_04 = load_query("cq-cam-04.rq")
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -531,7 +516,7 @@ def main() -> int:
     if not rows:
         failures.append("CQ-RES-03 returned no rows")
 
-    rows = [(short(row.temporaria), str(row.contato)) for row in populated.query(CQ_CAM_04)]
+    rows = [(short(row.propriedadeTemporaria), str(row.contato)) for row in populated.query(CQ_CAM_04)]
     print("\nCQ-CAM-04: Which temporary properties were identified?")
     print_table(["Temporary property", "Contact"], rows)
     if not rows:

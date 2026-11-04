@@ -1,5 +1,19 @@
+# CQ-INV-01: properties within the infected control zone.
+#
+# Coordinates are stored as xsd:string WKT in the ontology, so they are cast
+# to geo:wktLiteral before the spatial function is applied.
+#
+# spatialF:distance is Jena's spatial extension: it chooses the great-circle
+# distance for geographic coordinates and returns the value in the requested
+# unit. Jena's geof:distance does not convert angular coordinates (degrees) to
+# linear units, so geof:distance(..., uom:kilometre) fails on this dataset.
+# Engines with full GeoSPARQL 1.1 support (e.g., RDF4J, GraphDB) can replace
+# it with the standard call:
+#   FILTER(geof:distance(?alvoGeom, ?propGeom, uom:kilometre) <= ?raio)
 PREFIX sigevs: <https://sigevs.ontologies#>
-PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+PREFIX spatialF: <http://jena.apache.org/function/spatial#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
 
 SELECT ?propriedade ?nome WHERE {
   ?alvo a sigevs:AlvoInvestigacao ;
@@ -10,6 +24,8 @@ SELECT ?propriedade ?nome WHERE {
   ?propriedade a sigevs:Estabelecimento ;
                sigevs:nomeEstabelecimento ?nome ;
                sigevs:coordenadas ?propCoord .
-  FILTER(geof:distance(?alvoCoord, ?propCoord) <= ?raio)
+  BIND(STRDT(STR(?alvoCoord), geo:wktLiteral) AS ?alvoGeom)
+  BIND(STRDT(STR(?propCoord), geo:wktLiteral) AS ?propGeom)
+  FILTER(spatialF:distance(?alvoGeom, ?propGeom, uom:kilometre) <= ?raio)
 }
 ORDER BY ?nome

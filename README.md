@@ -12,7 +12,7 @@ sigevs-o/
 ├── conceptual-model/          # OntoUML conceptual model (Mermaid)
 ├── competency-questions/      # 36 competency questions
 ├── axioms/                    # 31 formal axioms
-├── sparql/                    # Representative verified SPARQL queries
+├── sparql/                    # Representative executable SPARQL queries
 ├── sabiox-artifacts/          # SABiOx methodology artefacts
 ├── visual-paradigm/           # Visual Paradigm project file
 ├── scripts/                   # Validation scripts (populate, reason, query)
