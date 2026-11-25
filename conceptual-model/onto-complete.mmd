@@ -1,0 +1,214 @@
+---
+title: SIGEVS-O — Complete Ontological Model
+---
+classDiagram
+    %% ═══════════════════════════════════════════
+    %% CORE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class Establishment {
+        <<Kind>>
+    }
+    class InspectedEstablishment {
+        <<Role>>
+    }
+    class Address {
+        <<Kind>>
+    }
+    class AnimalSpecies {
+        <<Kind>>
+    }
+    class Slaughterhouse {
+        <<Subkind>>
+    }
+    class SwineFarm {
+        <<Subkind>>
+    }
+    class PoultryFarm {
+        <<Subkind>>
+    }
+    class Person {
+        <<Kind>>
+    }
+
+    Establishment "1..*" --> "1" Address : hasAddress
+    Establishment "*" --> "*" AnimalSpecies : raises
+    Establishment <|-- Slaughterhouse
+    Establishment <|-- SwineFarm
+    Establishment <|-- PoultryFarm
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class SanitaryAnalysis {
+        <<Event>>
+    }
+    class InvestigationTarget {
+        <<Role>>
+    }
+    class AffectedArea {
+        <<Kind>>
+    }
+    class ControlZone {
+        <<Relator>>
+    }
+    class AnimalMovement {
+        <<Event>>
+    }
+    class ContactingProperty {
+        <<Role>>
+    }
+    class SpeciesCategory {
+        <<Enumeration>>
+    }
+
+    SanitaryAnalysis "*" --> "1" Person : createdBy
+    SanitaryAnalysis "1" --> "*" InvestigationTarget : hasTarget
+    SanitaryAnalysis "*" --> "*" AffectedArea : covers
+    InvestigationTarget "1" --> "0..3" ControlZone : «mediation» hasZone
+    AnimalMovement "*" --> "1" Establishment : origin
+    AnimalMovement "*" --> "1" Establishment : destination
+    AnimalSpecies "*" --> "1" SpeciesCategory : classifiedBy
+    Establishment <|-- InvestigationTarget
+    Establishment <|-- InspectedEstablishment
+    Establishment <|-- ContactingProperty
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class SanitaryResponse {
+        <<Event>>
+    }
+    class SurveillanceCycle {
+        <<Event>>
+    }
+    class ZonePerCycle {
+        <<Relator>>
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class TeamType {
+        <<Kind>>
+    }
+    class TeamMember {
+        <<Role>>
+    }
+    class TeamFunction {
+        <<Kind>>
+    }
+    class OperationalArea {
+        <<Kind>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+        Boolean visitaConcluida
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+    class Vehicle {
+        <<Kind>>
+    }
+    class CommandPost {
+        <<Kind>>
+    }
+    class SummonedPerson {
+        <<Role>>
+    }
+    class GPSTracking {
+        <<Event>>
+    }
+
+    SanitaryResponse "*" --> "1" SanitaryAnalysis : basedOn
+    SanitaryResponse "1" --> "*" SurveillanceCycle : contains
+    SanitaryResponse "0..1" --> "1" CommandPost : coordinatedFrom
+    SummonedPerson "*" --> "1" SanitaryResponse : summonedFor
+    SurveillanceCycle "1" --> "*" ZonePerCycle : «creation» subdividesInto
+    SurveillanceCycle "1" --> "*" FieldTeam : allocates
+    FieldTeam "1" --> "*" TeamMember : «memberOf» composedOf
+    FieldTeam "*" --> "1" TeamType : classifiedBy
+    FieldTeam "1" --> "*" OperationalArea : assignedTo
+    FieldTeam "1" --> "*" SanitaryBarrier : operates
+    FieldTeam "1" --> "*" Vehicle : uses
+    TeamMember "*" --> "1" TeamFunction : performs
+    SummonedPerson "*" --> "1" TeamFunction : performs
+    SummonedPerson "0..1" --> "1" TeamMember : allocatedAs
+    OperationalArea "*" --> "1" ZonePerCycle : «mediation» belongsTo
+    OperationalArea "1" --> "*" PropertyInArea : «mediation» contains
+    PropertyInArea "*" --> "1" InspectedEstablishment : «mediation» refersTo
+    GPSTracking "*" --> "1" Vehicle : tracks
+    ControlZone "1" --> "*" OperationalArea : «mediation» delimits
+    Person <|-- TeamMember
+    Person <|-- SummonedPerson
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class PropertySubmission {
+        <<Event>>
+    }
+    class BarrierSubmission {
+        <<Event>>
+    }
+    class RegisteredEstablishment {
+        <<Phase>>
+    }
+    class UnregisteredEstablishment {
+        <<Phase>>
+    }
+
+    PropertySubmission "*" --> "1" PropertyInArea : linkedTo
+    PropertySubmission "*" --> "1" FieldTeam : performedBy
+    BarrierSubmission "*" --> "1" SanitaryBarrier : linkedTo
+    Establishment <|-- RegisteredEstablishment
+    Establishment <|-- UnregisteredEstablishment
+    note for Establishment "Registration phases: {disjoint, complete}"
+
+    %% ═══════════════════════════════════════════
+    %% CORE STYLES (green)
+    %% ═══════════════════════════════════════════
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Address fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style AnimalSpecies fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Slaughterhouse fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SwineFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PoultryFarm fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION STYLES (orange)
+    %% ═══════════════════════════════════════════
+    style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style InvestigationTarget fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AffectedArea fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ControlZone fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AnimalMovement fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ContactingProperty fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style SpeciesCategory fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE STYLES (blue)
+    %% ═══════════════════════════════════════════
+    style SanitaryResponse fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SurveillanceCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style ZonePerCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamType fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamMember fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamFunction fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style OperationalArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Vehicle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style CommandPost fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SummonedPerson fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style GPSTracking fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS STYLES (pink)
+    %% ═══════════════════════════════════════════
+    style PropertySubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style BarrierSubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style RegisteredEstablishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style UnregisteredEstablishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style InspectedEstablishment fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

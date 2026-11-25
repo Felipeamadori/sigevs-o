@@ -1,0 +1,55 @@
+---
+title: SIGEVS-O — Subdomínio Investigação Sanitária
+---
+classDiagram
+    class AnaliseSanitaria {
+        <<Event>>
+    }
+    class Pessoa {
+        <<Kind>>
+    }
+    class AlvoInvestigacao {
+        <<Role>>
+    }
+    class AreaAfetada {
+        <<Kind>>
+    }
+    class ZonaControle {
+        <<Relator>>
+    }
+    class MovimentacaoAnimal {
+        <<Event>>
+    }
+    class Estabelecimento {
+        <<Kind>>
+    }
+    class PropriedadeContactante {
+        <<Role>>
+    }
+    class CategoriaEspecie {
+        <<Enumeration>>
+    }
+    class EspecieAnimal {
+        <<Kind>>
+    }
+
+    AnaliseSanitaria "*" --> "1" Pessoa : criada por
+    AnaliseSanitaria "1" --> "*" AlvoInvestigacao : tem alvo
+    AnaliseSanitaria "*" --> "*" AreaAfetada : abrange
+    AlvoInvestigacao "1" --> "0..3" ZonaControle : «mediation» tem zona
+    MovimentacaoAnimal "*" --> "1" Estabelecimento : origem
+    MovimentacaoAnimal "*" --> "1" Estabelecimento : destino
+    EspecieAnimal "*" --> "1" CategoriaEspecie : classifica-se por
+    Estabelecimento <|-- AlvoInvestigacao
+    Estabelecimento <|-- PropriedadeContactante
+
+    style AnaliseSanitaria fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AlvoInvestigacao fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AreaAfetada fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ZonaControle fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style MovimentacaoAnimal fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style PropriedadeContactante fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style CategoriaEspecie fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style Pessoa fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Estabelecimento fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EspecieAnimal fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px

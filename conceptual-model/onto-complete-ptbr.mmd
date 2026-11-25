@@ -1,0 +1,214 @@
+---
+title: SIGEVS-O — Modelo Ontológico Completo
+---
+classDiagram
+    %% ═══════════════════════════════════════════
+    %% CORE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class Estabelecimento {
+        <<Kind>>
+    }
+    class PropriedadeInspecionada {
+        <<Role>>
+    }
+    class Endereco {
+        <<Kind>>
+    }
+    class EspecieAnimal {
+        <<Kind>>
+    }
+    class Frigorifico {
+        <<Subkind>>
+    }
+    class GranjaSuina {
+        <<Subkind>>
+    }
+    class GranjaAvicola {
+        <<Subkind>>
+    }
+    class Pessoa {
+        <<Kind>>
+    }
+
+    Estabelecimento "1..*" --> "1" Endereco : possui endereço
+    Estabelecimento "*" --> "*" EspecieAnimal : explora espécies
+    Estabelecimento <|-- Frigorifico
+    Estabelecimento <|-- GranjaSuina
+    Estabelecimento <|-- GranjaAvicola
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class AnaliseSanitaria {
+        <<Event>>
+    }
+    class AlvoInvestigacao {
+        <<Role>>
+    }
+    class AreaAfetada {
+        <<Kind>>
+    }
+    class ZonaControle {
+        <<Relator>>
+    }
+    class MovimentacaoAnimal {
+        <<Event>>
+    }
+    class PropriedadeContactante {
+        <<Role>>
+    }
+    class CategoriaEspecie {
+        <<Enumeration>>
+    }
+
+    AnaliseSanitaria "*" --> "1" Pessoa : criada por
+    AnaliseSanitaria "1" --> "*" AlvoInvestigacao : tem alvo
+    AnaliseSanitaria "*" --> "*" AreaAfetada : abrange
+    AlvoInvestigacao "1" --> "0..3" ZonaControle : «mediation» tem zona
+    MovimentacaoAnimal "*" --> "1" Estabelecimento : origem
+    MovimentacaoAnimal "*" --> "1" Estabelecimento : destino
+    EspecieAnimal "*" --> "1" CategoriaEspecie : classifica-se por
+    Estabelecimento <|-- AlvoInvestigacao
+    Estabelecimento <|-- PropriedadeInspecionada
+    Estabelecimento <|-- PropriedadeContactante
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class RespostaSanitaria {
+        <<Event>>
+    }
+    class CicloVigilancia {
+        <<Event>>
+    }
+    class ZonaPorCiclo {
+        <<Relator>>
+    }
+    class EquipeCampo {
+        <<Collective>>
+    }
+    class TipoEquipe {
+        <<Kind>>
+    }
+    class MembroEquipe {
+        <<Role>>
+    }
+    class FuncaoEmEquipe {
+        <<Kind>>
+    }
+    class AreaOperacional {
+        <<Kind>>
+    }
+    class PropriedadeEmArea {
+        <<Relator>>
+        Boolean visitaConcluida
+    }
+    class BarreiraSanitaria {
+        <<Kind>>
+    }
+    class Veiculo {
+        <<Kind>>
+    }
+    class PostoComando {
+        <<Kind>>
+    }
+    class PessoaConvocada {
+        <<Role>>
+    }
+    class RastreamentoGPS {
+        <<Event>>
+    }
+
+    RespostaSanitaria "*" --> "1" AnaliseSanitaria : baseada em
+    RespostaSanitaria "1" --> "*" CicloVigilancia : possui
+    RespostaSanitaria "0..1" --> "1" PostoComando : tem posto
+    PessoaConvocada "*" --> "1" RespostaSanitaria : convocada para
+    CicloVigilancia "1" --> "*" ZonaPorCiclo : «creation» subdivide-se em
+    CicloVigilancia "1" --> "*" EquipeCampo : aloca
+    EquipeCampo "1" --> "*" MembroEquipe : «memberOf» composta por
+    EquipeCampo "*" --> "1" TipoEquipe : classifica-se por
+    EquipeCampo "1" --> "*" AreaOperacional : atua em
+    EquipeCampo "1" --> "*" BarreiraSanitaria : opera
+    EquipeCampo "1" --> "*" Veiculo : utiliza
+    MembroEquipe "*" --> "1" FuncaoEmEquipe : desempenha
+    PessoaConvocada "*" --> "1" FuncaoEmEquipe : desempenha
+    PessoaConvocada "0..1" --> "1" MembroEquipe : alocado como
+    AreaOperacional "*" --> "1" ZonaPorCiclo : «mediation» pertence a
+    AreaOperacional "1" --> "*" PropriedadeEmArea : «mediation» contém
+    PropriedadeEmArea "*" --> "1" PropriedadeInspecionada : «mediation» refere-se a
+    RastreamentoGPS "*" --> "1" Veiculo : rastreia
+    ZonaControle "1" --> "*" AreaOperacional : «mediation» delimita
+    Pessoa <|-- MembroEquipe
+    Pessoa <|-- PessoaConvocada
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS SUBDOMAIN
+    %% ═══════════════════════════════════════════
+    class SubmissaoPropriedade {
+        <<Event>>
+    }
+    class SubmissaoBarreira {
+        <<Event>>
+    }
+    class EstabelecimentoCadastrado {
+        <<Phase>>
+    }
+    class EstabelecimentoNaoCadastrado {
+        <<Phase>>
+    }
+
+    SubmissaoPropriedade "*" --> "1" PropriedadeEmArea : vinculada a
+    SubmissaoPropriedade "*" --> "1" EquipeCampo : realizada por
+    SubmissaoBarreira "*" --> "1" BarreiraSanitaria : vinculada a
+    Estabelecimento <|-- EstabelecimentoCadastrado
+    Estabelecimento <|-- EstabelecimentoNaoCadastrado
+    note for Estabelecimento "Fases de cadastro: {disjoint, complete}"
+
+    %% ═══════════════════════════════════════════
+    %% CORE STYLES (green)
+    %% ═══════════════════════════════════════════
+    style Estabelecimento fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Endereco fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Pessoa fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EspecieAnimal fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Frigorifico fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style GranjaSuina fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style GranjaAvicola fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% INVESTIGATION STYLES (orange)
+    %% ═══════════════════════════════════════════
+    style AnaliseSanitaria fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AlvoInvestigacao fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style AreaAfetada fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ZonaControle fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style MovimentacaoAnimal fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style PropriedadeContactante fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style CategoriaEspecie fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% RESPONSE STYLES (blue)
+    %% ═══════════════════════════════════════════
+    style RespostaSanitaria fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style CicloVigilancia fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style ZonaPorCiclo fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style EquipeCampo fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TipoEquipe fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style MembroEquipe fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FuncaoEmEquipe fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style AreaOperacional fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PropriedadeEmArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style BarreiraSanitaria fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Veiculo fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PostoComando fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PessoaConvocada fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style RastreamentoGPS fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+
+    %% ═══════════════════════════════════════════
+    %% FIELD ACTIONS STYLES (pink)
+    %% ═══════════════════════════════════════════
+    style SubmissaoPropriedade fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style SubmissaoBarreira fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style EstabelecimentoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EstabelecimentoNaoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PropriedadeInspecionada fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

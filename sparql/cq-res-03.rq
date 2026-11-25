@@ -1,0 +1,10 @@
+PREFIX sigevs: <https://sigevs.ontologies#>
+
+SELECT ?equipe ?nomeEquipe ?membro ?nomeMembro WHERE {
+  ?equipe a sigevs:EquipeCampo ;
+          sigevs:nomeEquipe ?nomeEquipe ;
+          sigevs:CompostaPor ?membro .
+  ?membro a sigevs:MembroEquipe ;
+          sigevs:nomePessoa ?nomeMembro .
+}
+ORDER BY ?nomeEquipe ?nomeMembro

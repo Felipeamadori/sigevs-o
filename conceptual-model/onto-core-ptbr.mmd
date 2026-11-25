@@ -1,0 +1,52 @@
+---
+title: SIGEVS-O — Subdomínio Core
+---
+classDiagram
+    class Estabelecimento {
+        <<Kind>>
+    }
+    class Endereco {
+        <<Kind>>
+    }
+    class EspecieAnimal {
+        <<Kind>>
+    }
+    class Frigorifico {
+        <<Subkind>>
+    }
+    class GranjaSuina {
+        <<Subkind>>
+    }
+    class GranjaAvicola {
+        <<Subkind>>
+    }
+    class Pessoa {
+        <<Kind>>
+    }
+    class EstabelecimentoCadastrado {
+        <<Phase>>
+    }
+    class EstabelecimentoNaoCadastrado {
+        <<Phase>>
+    }
+
+    Estabelecimento "1..*" --> "1" Endereco : possui endereço
+    Estabelecimento "*" --> "*" EspecieAnimal : explora espécies
+    Estabelecimento <|-- Frigorifico
+    Estabelecimento <|-- EstabelecimentoCadastrado
+    Estabelecimento <|-- EstabelecimentoNaoCadastrado
+    note for Estabelecimento "Fases de cadastro: {disjoint, complete}"
+    Estabelecimento <|-- GranjaSuina
+    Estabelecimento <|-- GranjaAvicola
+
+    note for Pessoa "Ver Investigação e Resposta"
+
+    style Estabelecimento fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Endereco fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Pessoa fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EspecieAnimal fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Frigorifico fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EstabelecimentoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EstabelecimentoNaoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style GranjaSuina fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style GranjaAvicola fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px

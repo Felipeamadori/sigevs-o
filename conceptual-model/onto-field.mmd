@@ -1,0 +1,51 @@
+---
+title: SIGEVS-O Ontology — Field Actions Subdomain
+---
+classDiagram
+    class PropertySubmission {
+        <<Event>>
+    }
+    class BarrierSubmission {
+        <<Event>>
+    }
+    class RegisteredEstablishment {
+        <<Phase>>
+    }
+    class UnregisteredEstablishment {
+        <<Phase>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+        Boolean visitaConcluida
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+    class Establishment {
+        <<Kind>>
+    }
+    class InspectedEstablishment {
+        <<Role>>
+    }
+
+    PropertySubmission "*" --> "1" PropertyInArea : linkedTo
+    PropertySubmission "*" --> "1" FieldTeam : performedBy
+    BarrierSubmission "*" --> "1" SanitaryBarrier : linkedTo
+    PropertyInArea "*" --> "1" InspectedEstablishment : «mediation» refersTo
+    Establishment <|-- RegisteredEstablishment
+    Establishment <|-- InspectedEstablishment
+    Establishment <|-- UnregisteredEstablishment
+    note for Establishment "Registration phases: {disjoint, complete}"
+
+    style PropertySubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style BarrierSubmission fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style RegisteredEstablishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style UnregisteredEstablishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style InspectedEstablishment fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

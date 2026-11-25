@@ -1,0 +1,51 @@
+---
+title: SIGEVS-O — Subdomínio Ações em Campo
+---
+classDiagram
+    class SubmissaoPropriedade {
+        <<Event>>
+    }
+    class SubmissaoBarreira {
+        <<Event>>
+    }
+    class EstabelecimentoCadastrado {
+        <<Phase>>
+    }
+    class EstabelecimentoNaoCadastrado {
+        <<Phase>>
+    }
+    class PropriedadeEmArea {
+        <<Relator>>
+        Boolean visitaConcluida
+    }
+    class EquipeCampo {
+        <<Collective>>
+    }
+    class BarreiraSanitaria {
+        <<Kind>>
+    }
+    class Estabelecimento {
+        <<Kind>>
+    }
+    class PropriedadeInspecionada {
+        <<Role>>
+    }
+
+    SubmissaoPropriedade "*" --> "1" PropriedadeEmArea : vinculada a
+    SubmissaoPropriedade "*" --> "1" EquipeCampo : realizada por
+    SubmissaoBarreira "*" --> "1" BarreiraSanitaria : vinculada a
+    PropriedadeEmArea "*" --> "1" PropriedadeInspecionada : «mediation» refere-se a
+    Estabelecimento <|-- EstabelecimentoCadastrado
+    Estabelecimento <|-- PropriedadeInspecionada
+    Estabelecimento <|-- EstabelecimentoNaoCadastrado
+    note for Estabelecimento "Fases de cadastro: {disjoint, complete}"
+
+    style SubmissaoPropriedade fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style SubmissaoBarreira fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    style EstabelecimentoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style EstabelecimentoNaoCadastrado fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PropriedadeEmArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style EquipeCampo fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style BarreiraSanitaria fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Estabelecimento fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style PropriedadeInspecionada fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

@@ -1,0 +1,105 @@
+---
+title: SIGEVS-O Ontology — Response Subdomain
+---
+classDiagram
+    class SanitaryResponse {
+        <<Event>>
+    }
+    class SanitaryAnalysis {
+        <<Event>>
+    }
+    class SurveillanceCycle {
+        <<Event>>
+    }
+    class ZonePerCycle {
+        <<Relator>>
+    }
+    class FieldTeam {
+        <<Collective>>
+    }
+    class TeamType {
+        <<Kind>>
+    }
+    class TeamMember {
+        <<Role>>
+    }
+    class TeamFunction {
+        <<Kind>>
+    }
+    class OperationalArea {
+        <<Kind>>
+    }
+    class PropertyInArea {
+        <<Relator>>
+        Boolean visitaConcluida
+    }
+    class SanitaryBarrier {
+        <<Kind>>
+    }
+    class Vehicle {
+        <<Kind>>
+    }
+    class CommandPost {
+        <<Kind>>
+    }
+    class SummonedPerson {
+        <<Role>>
+    }
+    class GPSTracking {
+        <<Event>>
+    }
+    class Person {
+        <<Kind>>
+    }
+    class Establishment {
+        <<Kind>>
+    }
+    class InspectedEstablishment {
+        <<Role>>
+    }
+    class ControlZone {
+        <<Relator>>
+    }
+
+    SanitaryResponse "*" --> "1" SanitaryAnalysis : basedOn
+    SanitaryResponse "1" --> "*" SurveillanceCycle : contains
+    SanitaryResponse "0..1" --> "1" CommandPost : coordinatedFrom
+    SummonedPerson "*" --> "1" SanitaryResponse : summonedFor
+    SurveillanceCycle "1" --> "*" ZonePerCycle : «creation» subdividesInto
+    SurveillanceCycle "1" --> "*" FieldTeam : allocates
+    FieldTeam "1" --> "*" TeamMember : «memberOf» composedOf
+    FieldTeam "*" --> "1" TeamType : classifiedBy
+    FieldTeam "1" --> "*" OperationalArea : assignedTo
+    FieldTeam "1" --> "*" SanitaryBarrier : operates
+    FieldTeam "1" --> "*" Vehicle : uses
+    TeamMember "*" --> "1" TeamFunction : performs
+    SummonedPerson "*" --> "1" TeamFunction : performs
+    SummonedPerson "0..1" --> "1" TeamMember : allocatedAs
+    OperationalArea "*" --> "1" ZonePerCycle : «mediation» belongsTo
+    OperationalArea "1" --> "*" PropertyInArea : «mediation» contains
+    PropertyInArea "*" --> "1" InspectedEstablishment : «mediation» refersTo
+    GPSTracking "*" --> "1" Vehicle : tracks
+    ControlZone "1" --> "*" OperationalArea : «mediation» delimits
+    Person <|-- TeamMember
+    Person <|-- SummonedPerson
+
+    Establishment <|-- InspectedEstablishment
+    style SanitaryResponse fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SurveillanceCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style ZonePerCycle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style FieldTeam fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamType fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamMember fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style TeamFunction fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style OperationalArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style PropertyInArea fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SanitaryBarrier fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Vehicle fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style CommandPost fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style SummonedPerson fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style GPSTracking fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Person fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Establishment fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SanitaryAnalysis fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style ControlZone fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style InspectedEstablishment fill:#e3f2fd,stroke:#1565c0,stroke-width:2px

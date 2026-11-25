@@ -1,0 +1,8 @@
+PREFIX sigevs: <https://sigevs.ontologies#>
+
+SELECT ?estabelecimento ?contato WHERE {
+  ?estabelecimento a sigevs:EstabelecimentoNaoCadastrado ;
+                   sigevs:nomeContato ?contato ;
+                   sigevs:coordenadas ?coord .
+}
+ORDER BY ?contato
